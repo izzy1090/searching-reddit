@@ -10,16 +10,18 @@ function isoSubreddits(json) {
     for (const key in json){
         // if a key matches 'data' key
         if (key === 'data' && Object.keys(cache).length === 0){
-            // assign corresponding 
+            // use key/values nested under the parent object to build out a new object
             const parentObject = Object.assign(json[key]) 
+            // initialize empty cache object with parentObject to store data globally
             cache = parentObject
         } 
     } 
-    for (const key in cache){
-        console.log(cache[key])
-    }
+    console.log(cache)
     // return the object
     // return cache
 }
 
 console.log(isoSubreddits(test))
+
+// Need to decide if we want to store our children objects as either a class or object of objects
+// 
