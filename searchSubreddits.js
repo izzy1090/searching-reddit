@@ -47,13 +47,18 @@ const getRedditAccessToken = async () => {
     }
 }
 
+// whatever string you want
+const searchTerm = "elden ring"
+// sort	one of (relevance, hot, top, new, comments, old)
+const sortFilter = "new"
+
 // when invoked, function authenticates w/Reddit's API and 
     // creates a file as well as returns search results based on user-generated parameters
 const searchReddit = async (filename) => {
     try {
         // promise to fetch a query from reddit's API using user-generated search terms
             // and pull all matching threads
-        return await fetch("https://oauth.reddit.com/r/all/search?q=gundams&sort=new", {
+        return await fetch(`https://oauth.reddit.com/r/all/search/?q=${searchTerm}&sort=${sortFilter}`, {
         headers: {
             // authorize with previously generated bearer_token here
             Authorization: `bearer ${bearer_token}`}
@@ -79,5 +84,5 @@ const searchReddit = async (filename) => {
 
 getRedditAccessToken();
 setTimeout(()=>[
-    searchReddit('test')
+    searchReddit('results')
 ], 2000)
