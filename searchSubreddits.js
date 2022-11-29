@@ -1,6 +1,9 @@
 // dependency required for encoding API tokens and keys
 const config = require('dotenv').config()
 
+// to use fetch with earlier versions of node
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+
 // dependencies needed to run the script
 const fs = require('fs')
 
