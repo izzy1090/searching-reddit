@@ -1,0 +1,15 @@
+{
+  "name": "searching-through-subreddits",
+  "version": "1.0.0",
+  "description": "An app to search through subreddit(s) on behalf of another user.",
+  "main": "workBook.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael J. Isabella",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "fs": "^0.0.1-security"
+  }
+}
