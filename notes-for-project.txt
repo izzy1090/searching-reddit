@@ -1,3 +1,8 @@
+URL where you can create your app and generate api key / secret
+https://ssl.reddit.com/prefs/apps/
+
+Key/Value pairs to grab from raw data:
+
 "data" - so you can grab the rest of the values
 "subreddit" - the actual subreddit name the thread lives in
 "author_fullname" - the user who posted the thread
@@ -7,5 +12,3 @@
 "permalink":(i.e.  "/r/wholesomeyuri/comments/z7hpw1/suletta_x_miorine_gundam_the_witch_from_mercury/" )
 "url": "https://i.redd.it/qt29bvafmu2a1.jpg" - usually a link to media posted in the thread
 "subreddit_subscribers": 209234 - the sub-reddit subscriber count
-
-
