@@ -65,7 +65,7 @@ const oauthSearch = async (filename) => {
     try {
         // promise to fetch a query from reddit's API using user-generated search terms
             // and pull all matching threads
-        return await fetch(`https://oauth.reddit.com/r/all/search/?q=${run.searchTerm}&limit=${run.limit}&sort=${run.sortFilter}`, 
+        return await fetch(`https://oauth.reddit.com/r/all/search/?q=${run.searchTerm}&limit=${run.threadLimit}&sort=${run.sortFilter}`, 
         { headers: {
             // authorize with previously generated bearer_token here
             Authorization: `bearer ${bearer_token}`}
@@ -76,26 +76,19 @@ const oauthSearch = async (filename) => {
             // may not need this, but it's good having raw data saved locally
         .then( data => {
             const textDoc = JSON.stringify(data)
-            const file = fs.writeFile(`${filename}.txt`, textDoc, function(err){
+            fs.writeFile(`${filename}.txt`, textDoc, function(err){
                 if(err){
                     console.log(err) }
             })
-            return textDoc }) 
-        } 
-    catch (err){
-        console.log(err)
+            return {textDoc} 
+        }) 
+        } catch (err){
+            console.log(err)
     }
 }
 
-// run the script in your desired action order
-const runScript = async () => {
-    try {
-        return await getAccessToken()
-        .then( ()=> oauthSearch(`${uniqueFilename}`)) 
-    } 
-    catch (error){
-        console.log(error)
-    }
+module.exports = {
+    getAccessToken, 
+    oauthSearch,
+    uniqueFilename
 }
-
-runScript();
