@@ -9,7 +9,6 @@ const fs = require('fs')
 
 // JS files needed to run this script
 const run = require('./userInput')
-const filter = require('./filterData')
 
 // initialize variable to current date 
 const today = new Date().toDateString().split(' ').join('_').toLowerCase();
@@ -77,26 +76,19 @@ const oauthSearch = async (filename) => {
             // may not need this, but it's good having raw data saved locally
         .then( data => {
             const textDoc = JSON.stringify(data)
-            const file = fs.writeFile(`${filename}.txt`, textDoc, function(err){
+            fs.writeFile(`${filename}.txt`, textDoc, function(err){
                 if(err){
                     console.log(err) }
             })
-            return textDoc }) 
-        } 
-    catch (err){
-        console.log(err)
+            return {textDoc} 
+        }) 
+        } catch (err){
+            console.log(err)
     }
 }
 
-// run the script in your desired action order
-const runScript = async () => {
-    try {
-        return await getAccessToken()
-        .then( ()=> oauthSearch(`${uniqueFilename}`)) 
-    } 
-    catch (error){
-        console.log(error)
-    }
+module.exports = {
+    getAccessToken, 
+    oauthSearch,
+    uniqueFilename
 }
-
-runScript();
