@@ -6,6 +6,8 @@ const user = require('./userInput')
 const {exec} = require('child_process');
 const { stderr } = require('process');
 
+console.log('Ignore the log above, a search is not being made...')
+
 // declare variable to format passed filename from userParameters.js
 // to be an acceptable format for creating file directories
 const folderName = user.searchTerm.split(' ').join('_').replace('.txt','').toLowerCase()
