@@ -7,20 +7,30 @@ const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch
 // dependencies needed to run the script
 const fs = require('fs')
 
+// JS files needed to run this script
+const run = require('./userInput')
+
+// initialize variable to current date 
+const today = new Date().toDateString().split(' ').join('_').toLowerCase();
+// initialize variable to exact time by mins.
+const exactMinute = new Date().getMinutes();
+// use previous variable to build unique filename
+const uniqueFilename = exactMinute + '_' + today + run.searchTerm.split(' ').join('_')
+
 // declared variables to use for OAuth with Reddit's API
 const username = process.env.USERNAME;
 const password = process.env.PASSWORD;
 const api_key = process.env.API_KEY;
 const api_secret = process.env.API_SECRET;
 // declared bearer_token variable to initialize 
-    // with our bearer token returned from OAuth fetch POST function below
+    // with bearer token returned from OAuth fetch POST below
 var bearer_token;
 
 // when invoked function generates access token to use for authentication 
     // while utilizing Reddit's API
 // input: nothing
 // output: initializes bearer_token with generated access token
-const getRedditAccessToken = async () => {
+const getAccessToken = async () => {
     try {
         // first make a post request to reddit's API for an access_token
         return await fetch('https://www.reddit.com/api/v1/access_token', {
@@ -47,19 +57,16 @@ const getRedditAccessToken = async () => {
     }
 }
 
-// whatever string you want
-const searchTerm = "elden ring"
-// sort	one of (relevance, hot, top, new, comments, old)
-const sortFilter = "new"
-
 // when invoked, function authenticates w/Reddit's API and 
     // creates a file as well as returns search results based on user-generated parameters
-const searchReddit = async (filename) => {
+// input: searchTerm and filename
+// output: raw json data and save a file locally
+const oauthSearch = async (filename) => {
     try {
         // promise to fetch a query from reddit's API using user-generated search terms
             // and pull all matching threads
-        return await fetch(`https://oauth.reddit.com/r/all/search/?q=${searchTerm}&sort=${sortFilter}`, {
-        headers: {
+        return await fetch(`https://oauth.reddit.com/r/all/search/?q=${run.searchTerm}&limit=${run.limit}&sort=${run.sortFilter}`, 
+        { headers: {
             // authorize with previously generated bearer_token here
             Authorization: `bearer ${bearer_token}`}
         })
@@ -73,16 +80,22 @@ const searchReddit = async (filename) => {
                 if(err){
                     console.log(err) }
             })
-            return textDoc })
-        // log our search results to the console to see what we're working with
-        .then(searchResults=>console.log(searchResults))
-    } catch (err){
+            return textDoc }) 
+        } 
+    catch (err){
         console.log(err)
     }
-
 }
 
-getRedditAccessToken();
-setTimeout(()=>[
-    searchReddit('results')
-], 2000)
+// run the script in your desired action order
+const runScript = async () => {
+    try {
+        return await getAccessToken()
+        .then( ()=> oauthSearch(`${uniqueFilename}`)) 
+    } 
+    catch (error){
+        console.log(error)
+    }
+}
+
+runScript();
