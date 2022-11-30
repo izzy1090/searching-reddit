@@ -2,7 +2,10 @@
 
 To use program, create a folder in your desired directory where the repo will live locally, then clone the repo in that directory. 
 
-Create a seperate .env file and use the .env_sample to format the file. Then create a app on reddit with whatever name for your project.
+Create a separate .env file and use the .env_sample to format the file. 
+
+Go to the below URL and use your reddit account to create an app. Write your desired app title, app description, choose "script" for personal use, and enter in your desired redirect URL.
+https://ssl.reddit.com/prefs/apps/
 
 Add your API Key and API Secret to the .env file you created using the .env_sample as a template. 
 
@@ -17,4 +20,4 @@ npm install node-fetch
 'dotenv'
 npm install dotenv
 
-You should be good to go! A cleaner README file will be added in the future.
+After that, should be good to go! A cleaner README is intended for the future.
