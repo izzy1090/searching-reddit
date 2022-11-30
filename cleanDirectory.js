@@ -11,10 +11,9 @@ const { stderr } = require('process');
 const folderName = user.searchTerm.split(' ').join('_').replace('.txt','').toLowerCase()
 
 // use fs to point to appropriate directory to search for filenames
-const fileDirectory = fs.readdirSync('../dev-branch');
+const fileDirectory = fs.readdirSync('../searching-through-sub-reddits');
 
 // checks to see if folder associated with search exists
-    
 if (!fs.existsSync(`${folderName}`)){
     console.log('Directory does not exist, creating a new one now...')
     // if not create a new directory

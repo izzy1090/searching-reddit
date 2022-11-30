@@ -22,8 +22,6 @@ function isoSubreddits(json) {
     return cache
 }
 
-
-
 // invoke function to test if function works, this will also help me better split up my scripts
 // const output = isoSubreddits(test)
 // const test1 = output.children.map((val)=>{

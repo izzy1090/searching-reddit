@@ -9,6 +9,7 @@ const fs = require('fs')
 
 // JS files needed to run this script
 const run = require('./userInput')
+const filter = require('./filterData')
 
 // initialize variable to current date 
 const today = new Date().toDateString().split(' ').join('_').toLowerCase();
@@ -65,7 +66,7 @@ const oauthSearch = async (filename) => {
     try {
         // promise to fetch a query from reddit's API using user-generated search terms
             // and pull all matching threads
-        return await fetch(`https://oauth.reddit.com/r/all/search/?q=${run.searchTerm}&limit=${run.limit}&sort=${run.sortFilter}`, 
+        return await fetch(`https://oauth.reddit.com/r/all/search/?q=${run.searchTerm}&limit=${run.threadLimit}&sort=${run.sortFilter}`, 
         { headers: {
             // authorize with previously generated bearer_token here
             Authorization: `bearer ${bearer_token}`}
