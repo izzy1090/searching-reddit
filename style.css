@@ -1,3 +1,61 @@
-.body{
-    color: rgb(237, 24, 24);
+
+* {
+    margin: 0;
+    padding: 0;
+    color: #000000e3;
+}
+.banner{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(204, 204, 204);
+    height: 25px;
+    padding: 10px;
+    margin: 10px;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+.wrapper{
+    margin: 10px;
+    padding: 0;
+    border: 0;
+}
+.flex{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+.search-container{
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    border: 1px groove rgb(204, 204, 204);
+    margin-bottom: 16px;
+    padding: 8px;
+}
+.search-bar{
+    border: 1px solid rgb(204, 204, 204);
+    ;
+}
+.button{
+    border-color: inset rgb(204, 204, 204);
+    background-color: rgb(9, 115, 237);
+    border-radius: 3px;
+    margin: 5px;
+    padding: 10px;
+    border-style: groove;
+}
+.sort-search-results{
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    border: 1px solid rgb(204, 204, 204);
+    margin-bottom: 16px;
+    padding: 10px 12px;
+}
+.threads{
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    border: 1px solid rgb(204, 204, 204);
+    padding: 10px 12px
+
 }
