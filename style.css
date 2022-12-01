@@ -1,0 +1,84 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: verdana,Arial, Helvetica, sans-serif;
+}
+.page-container{
+    display: block;
+    min-height: 100%;
+    position: relative;
+    width: 980px;
+    margin:0 auto
+    
+}
+.banner{
+    background-color: rgb(255, 255, 255);
+    border: 1px hidden rgb(204, 204, 204);
+    height: 25px;
+    padding: 10px;
+    margin: 10px;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.search-container{
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    border: 1px solid rgb(204, 204, 204);
+    margin: 20px;
+    margin-bottom: 16px;
+    padding: 8px;
+}
+#reddit-logo {
+    max-width: 4%;
+    height: auto;
+    padding: 5px;
+    margin-top: 5px;
+}
+.search-bar{
+    color: rgb(190, 190, 190);
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 4px;
+    margin: 10px;
+    margin-bottom: 4px;
+    padding: 5px;
+    flex-grow: 2;
+    
+
+}
+#search-title {
+    color: rgb(28, 28, 28);
+    font-weight: 500;
+    font-size: 29.33px;
+}
+.search-button{
+    max-width: 4%;
+    height: auto;
+    padding: 5px;
+    margin-top: 5px;
+    background-image: none !important;
+    opacity: .6;
+}
+.sort-options{
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    border: 1px solid rgb(204, 204, 204);
+    margin: 20px;
+    margin-bottom: 16px;
+    padding: 8px;
+}
+.threads{
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    border: 1px solid rgb(204, 204, 204);
+    padding: 10px 12px
+
+}

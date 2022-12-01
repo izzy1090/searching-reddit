@@ -15,7 +15,7 @@ const runScript = async () => {
         .then(() => { return readFile.asyncReadFile(`${token.uniqueFilename}.txt`) })
         // remove rawData from it's parent object and initialize it to a new object
         .then(rawData => { return filter.isoChildObj(rawData) })
-        // then take returned object and initialize it to evaluted
+        // then take returned object and initialize it to evaluated
             // results of invoking filterData with object as a passed-in arg
         .then(object => { return filter.filterData(object) })
     } catch (err) {

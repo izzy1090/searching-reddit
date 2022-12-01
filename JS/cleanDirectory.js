@@ -6,12 +6,14 @@ const user = require('./userInput')
 const {exec} = require('child_process');
 const { stderr } = require('process');
 
+console.log('Ignore the log above, a search is not being made...')
+
 // declare variable to format passed filename from userParameters.js
 // to be an acceptable format for creating file directories
 const folderName = user.searchTerm.split(' ').join('_').replace('.txt','').toLowerCase()
 
 // use fs to point to appropriate directory to search for filenames
-const fileDirectory = fs.readdirSync('../searching-through-sub-reddits');
+const fileDirectory = fs.readdirSync('../JS');
 
 // checks to see if folder associated with search exists
 if (!fs.existsSync(`${folderName}`)){

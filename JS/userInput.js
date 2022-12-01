@@ -1,3 +1,4 @@
+// Dependencies required to run this script
 const { existsSync } = require("fs");
 const { exit } = require("process");
 
@@ -36,7 +37,7 @@ function userInput(search, limit, sort) {
 
 // for sort pick one of (relevance, hot, top, new, comments, old)
     // at this time date ranges are not possible via Reddit's API
-userInput('crypto', 50, 'hot')
+userInput('crypto', 50, 'new')
 
 // this can be the script I use to run the order of actions for everything
 
