@@ -11,6 +11,8 @@ Add your API Key and API Secret to the .env file you created earlier using the .
 
 Finally install the following npm dependencies:
 
+npm init
+
 'fs'
 npm install fs
 
@@ -19,6 +21,10 @@ npm install node-fetch
 
 'dotenv'
 npm install dotenv
+
+'webpack'
+npm install webpack
+npx webpack init
 
 You should be good to go! 
 
