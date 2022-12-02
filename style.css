@@ -4,7 +4,7 @@
     padding: 0;
     font-family: verdana,Arial, Helvetica, sans-serif;
 }
-.page-container{
+.page-container {
     display: block;
     min-height: 100%;
     position: relative;
@@ -12,7 +12,7 @@
     margin:0 auto
     
 }
-.banner{
+.banner {
     background-color: rgb(255, 255, 255);
     border: 1px hidden rgb(204, 204, 204);
     height: 25px;
@@ -24,17 +24,17 @@
     margin-bottom: 16px;
     text-align: center;
 }
-.flex{
+.flex {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.search-container{
+.search-container {
     background-color: rgb(255, 255, 255);
     border-radius: 4px;
     border: 1px solid rgb(204, 204, 204);
     margin: 20px;
-    margin-bottom: 16px;
+    margin-bottom: 25px;
     padding: 8px;
 }
 #reddit-logo {
@@ -43,7 +43,7 @@
     padding: 5px;
     margin-top: 5px;
 }
-.search-bar{
+.search-bar {
     color: rgb(190, 190, 190);
     border: 1px solid rgb(204, 204, 204);
     border-radius: 4px;
@@ -51,15 +51,13 @@
     margin-bottom: 4px;
     padding: 5px;
     flex-grow: 2;
-    
-
 }
 #search-title {
-    color: rgb(28, 28, 28);
+    color: rgba(28, 28, 28, 0.902);
     font-weight: 500;
     font-size: 29.33px;
 }
-.search-button{
+.search-button {
     max-width: 4%;
     height: auto;
     padding: 5px;
@@ -67,18 +65,70 @@
     background-image: none !important;
     opacity: .6;
 }
-.sort-options{
+.sort-thread-container {
+    display: flex;
+    align-items: center;
+}
+.sort-container {
     background-color: rgb(255, 255, 255);
     border-radius: 4px;
     border: 1px solid rgb(204, 204, 204);
     margin: 20px;
     margin-bottom: 16px;
     padding: 8px;
+    padding-left: 14px;
+    display: flex;
+    /* align-items: center; */
+    /* justify-content: center; */
+    flex-direction: column;
 }
-.threads{
+.sort-buttons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 40px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-right: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 50px;
+    background-color: rgb(246, 247, 248);
+}
+#sort-buttons-text{
+    padding: 5px;
+    font-size: small;
+    font-weight: 700;
+    color: rgb(55, 120, 204);
+}
+.flame-icon{
+    max-width: 45%;
+    height: auto;
+    background-image: none !important;
+}
+.rocket-icon {
+    max-width: 40%;
+    height: auto;
+    background-image: none !important;
+}
+.new-icon {
+    max-width: 63%;
+    height: auto;
+    background-image: none !important;
+}
+.top-icon {
+    max-width: 70%;
+    height: auto;
+    background-image: none !important;
+}
+.threads-container {
     background-color: rgb(255, 255, 255);
     border-radius: 4px;
     border: 1px solid rgb(204, 204, 204);
-    padding: 10px 12px
-
+    padding: 10px 12px;
+    margin: 20px;
+    flex-grow: 4;
 }
