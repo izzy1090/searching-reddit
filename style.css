@@ -6,127 +6,82 @@
     vertical-align: baseline;
     font-family: verdana, Arial, Helvetica, sans-serif;
 }
-.page-container {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0 auto;
-    padding: 5px;
+body{
+    background-color: rgb(218, 224, 230);
 }
 .search-container {
     background-color: rgb(255, 255, 255);
-    border-radius: 4px;
-    border: 1px solid rgb(204, 204, 204);
-    padding: 10px;
-    margin: 10px;
-    margin-top: -10px;
-    margin-left: -10px;
-    margin-right: -10px;
-    margin-bottom: 16px; 
+    flex-grow: 0;
+    flex-shrink: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 5px;
+    position: fixed;
     display: inline-flex;
-    flex-grow: 1;
-    
+}
+#header-title {
+    white-space: pre-line;
+    padding: 5px;
 }
 #reddit-logo {
     max-width: 30px;
     height: 30px;
     padding: 5px;
     margin: 5px;
-    position: absolute;
     align-items: center;
 }
-#search-title {
-    color: rgba(28, 28, 28, 0.902);
-    font-weight: 500;
-    font-size: 20px;
-    padding-right: 50px;
-    padding-left: 50px;
-    white-space: pre-line;
-
-}
-.search-bar {
+#search-bar {
     color: rgb(190, 190, 190);
     border: 1px solid rgb(204, 204, 204);
-    border-radius: 4px;
+    border-radius: 1.25em;
     margin: 10px;
-    margin-left: 170px;
-    margin-bottom: 4px;
-    justify-content: flex-end;
     padding: 5px;
     height: 20px;
     width: 250px;
-    position: absolute;
+    overflow: auto;
 }
-.search-button {
-    max-width: 4%;
-    height: auto;
-    padding: 5px;
-    margin-top: 5px;
-    background-image: none !important;
-    opacity: .6;
+.page-contents {
+    border: solid 2px black;
+    margin: 15px;
+    margin-top: 80px;
+    padding: 10px;
+    display: block;
 }
-.sort-thread-container {
+.sort-buttons-container {
     display: flex;
+    justify-content: center;
+    overflow:auto
+}
+.sort-buttons {
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    border: 1px solid rgb(204, 204, 204);
+    margin: 10px;
+    height: fit-content;
+    width: fit-content;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;    
+}
+#sort-button-images {
+    max-width: 25px;
+    background: none !important;
+    padding: 5px;
 }
 .threads-container {
     background-color: rgb(255, 255, 255);
     border-radius: 4px;
     border: 1px solid rgb(204, 204, 204);
     padding: 10px 12px;
-    margin: 20px;
+    margin: 5px;
     flex-grow: 4;
+    overflow:scroll
 }
-.sort-container {
-    background-color: rgb(255, 255, 255);
-    border-radius: 4px;
-    border: 1px solid rgb(204, 204, 204);
-    margin: 20px;
-    margin-bottom: 16px;
-    padding: 8px;
-    padding-left: 14px;
-    display: flex;
-    flex-direction: column;
-}
-.sort-buttons {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    border-radius: 40px;
-    padding-left: 10px;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    padding-right: 30px;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    width: 50px;
-    background-color: rgb(246, 247, 248);
-}
-#sort-buttons-text {
+/* #sort-buttons-text {
     padding: 5px;
     font-size: small;
     font-weight: 700;
     color: rgb(55, 120, 204);
-}
-.flame-icon {
-    max-width: 45%;
-    height: auto;
-    background-image: none !important;
-}
-.rocket-icon {
-    max-width: 40%;
-    height: auto;
-    background-image: none !important;
-}
-.new-icon {
-    max-width: 63%;
-    height: auto;
-    background-image: none !important;
-}
-.top-icon {
-    max-width: 70%;
-    height: auto;
-    background-image: none !important;
-}
+} */
