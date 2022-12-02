@@ -2,60 +2,61 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: verdana,Arial, Helvetica, sans-serif;
+    border: 0;
+    vertical-align: baseline;
+    font-family: verdana, Arial, Helvetica, sans-serif;
 }
 .page-container {
-    display: block;
-    min-height: 100%;
-    position: relative;
-    width: 980px;
-    margin:0 auto
-    
-}
-.banner {
-    background-color: rgb(255, 255, 255);
-    border: 1px hidden rgb(204, 204, 204);
-    height: 25px;
-    padding: 10px;
-    margin: 10px;
-    margin-top: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-bottom: 16px;
-    text-align: center;
-}
-.flex {
+    box-sizing: border-box;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 5px;
 }
 .search-container {
     background-color: rgb(255, 255, 255);
     border-radius: 4px;
     border: 1px solid rgb(204, 204, 204);
-    margin: 20px;
-    margin-bottom: 25px;
-    padding: 8px;
+    padding: 10px;
+    margin: 10px;
+    margin-top: -10px;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-bottom: 16px; 
+    display: inline-flex;
+    flex-grow: 1;
+    
 }
 #reddit-logo {
-    max-width: 4%;
-    height: auto;
+    max-width: 30px;
+    height: 30px;
     padding: 5px;
-    margin-top: 5px;
+    margin: 5px;
+    position: absolute;
+    align-items: center;
+}
+#search-title {
+    color: rgba(28, 28, 28, 0.902);
+    font-weight: 500;
+    font-size: 20px;
+    padding-right: 50px;
+    padding-left: 50px;
+    white-space: pre-line;
+
 }
 .search-bar {
     color: rgb(190, 190, 190);
     border: 1px solid rgb(204, 204, 204);
     border-radius: 4px;
     margin: 10px;
+    margin-left: 170px;
     margin-bottom: 4px;
+    justify-content: flex-end;
     padding: 5px;
-    flex-grow: 2;
-}
-#search-title {
-    color: rgba(28, 28, 28, 0.902);
-    font-weight: 500;
-    font-size: 29.33px;
+    height: 20px;
+    width: 250px;
+    position: absolute;
 }
 .search-button {
     max-width: 4%;
@@ -67,7 +68,14 @@
 }
 .sort-thread-container {
     display: flex;
-    align-items: center;
+}
+.threads-container {
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    border: 1px solid rgb(204, 204, 204);
+    padding: 10px 12px;
+    margin: 20px;
+    flex-grow: 4;
 }
 .sort-container {
     background-color: rgb(255, 255, 255);
@@ -78,8 +86,6 @@
     padding: 8px;
     padding-left: 14px;
     display: flex;
-    /* align-items: center; */
-    /* justify-content: center; */
     flex-direction: column;
 }
 .sort-buttons {
@@ -98,13 +104,13 @@
     width: 50px;
     background-color: rgb(246, 247, 248);
 }
-#sort-buttons-text{
+#sort-buttons-text {
     padding: 5px;
     font-size: small;
     font-weight: 700;
     color: rgb(55, 120, 204);
 }
-.flame-icon{
+.flame-icon {
     max-width: 45%;
     height: auto;
     background-image: none !important;
@@ -123,12 +129,4 @@
     max-width: 70%;
     height: auto;
     background-image: none !important;
-}
-.threads-container {
-    background-color: rgb(255, 255, 255);
-    border-radius: 4px;
-    border: 1px solid rgb(204, 204, 204);
-    padding: 10px 12px;
-    margin: 20px;
-    flex-grow: 4;
 }
