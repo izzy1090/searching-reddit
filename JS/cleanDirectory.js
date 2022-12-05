@@ -13,7 +13,7 @@ console.log('Ignore the log above, a search is not being made...')
 const folderName = user.searchTerm.split(' ').join('_').replace('.txt','').toLowerCase()
 
 // use fs to point to appropriate directory to search for filenames
-const fileDirectory = fs.readdirSync('../src');
+const fileDirectory = fs.readdirSync('../JS');
 
 // checks to see if folder associated with search exists
 if (!fs.existsSync(`${folderName}`)){

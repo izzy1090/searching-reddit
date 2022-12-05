@@ -80,7 +80,8 @@ const oauthSearch = async (filename) => {
                 if(err){
                     console.log(err) }
             })
-            return {textDoc} 
+            // return previously initialized variable as an object
+            return { textDoc } 
         }) 
         } catch (err){
             console.log(err)

@@ -1,7 +1,3 @@
-// Dependencies required to run this script
-const { existsSync } = require("fs");
-const { exit } = require("process");
-
 // declare a variable to export out to other scripts
 let searchTerm = "";
 let sortFilter = "hot";

@@ -1,6 +1,3 @@
-// Scripts required to run this script
-const tokens = require('./authenticateAPI')
-
 // function pulls subreddit matching search results outs of it's parent object
     // then returns the child object
 // input: json to parse through
@@ -59,4 +56,3 @@ module.exports = {
     isoChildObj,
     filterData
 }
-
