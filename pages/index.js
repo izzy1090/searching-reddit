@@ -1,19 +1,43 @@
-// our-domain.com/
+// currently: http://localhost:3001/
 
 // JS scripts needed to run this script
 const filter = require('../JS/filterData')
 const user = require('../JS/userInput')
-
+ 
 function page ( { results }) {
-    const subreddit = results.map(val => val.subreddit)
-    const redditor = results.map(val => val.author_fullname)
-    const threadTitle = results.map(val => val.title)
-    const threadText = results.map(val => val.selftext)
-    const awards = results.map(val => val.total_awards_received)
-    const url = results.map(val => val.url)
-    console.log(results)
+    return (
+        <div>
+            <header>
+                <div class="search-container">
+                    <img src='/public/images/reddit_logo' alt='reddit logo' id="reddit-logo"></img>
+                    <div id="header-title">subreddits & threads</div>
+                    <div id="search-bar">search reddit...</div>
+                </div>
+            </header>
+            <div>
+                <div>
+                    {
+                        results.map(data=>{
+                            return (
+                                <div class="subreddits-container" key={data}>
+                                    <header id="threads-sizing">{data.subreddit}</header>
+                                    <div id="threads-sizing">{data.author_fullname}</div>
+                                    <div id="threads-sizing">{data.title}</div>
+                                    <div id="threads-sizing">{data.selftext}</div>
+                                    <div id="threads-sizing">Awards Received: {data.total_awards_received}</div>
+                                    <div id="threads-sizing">URL: {data.url}</div>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+            </div>
+        </div>
+    )
 }
 
+// function required for next js to make API calls 
+    // server side instead of client side
 export async function getServerSideProps(context) {
     // declared variables to use for OAuth with Reddit's API
     const username = process.env.USERNAME;
