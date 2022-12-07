@@ -13,17 +13,19 @@ function userInput(search, limit, sort) {
             // initialize global variables to match user input
             searchTerm = search
             threadLimit = limit
-            console.log("Hot results are shown by default. Thread count caps at 100.") } 
+            // console.log("Hot results are shown by default. Thread count caps at 100.") 
+        } 
         // if search, threadLimit and sort are all found 
         else if (search && threadLimit > 25 || threadLimit < 100 && sort.match(/['relevance','hot','new','comments', 'old']/)) {
             // initialize all variables to passed-in args
-            console.log(`Sorting threads by ${sort}... Thread count caps at 100.`)
+            // console.log(`Sorting threads by ${sort}... Thread count caps at 100.`)
             searchTerm = search
             threadLimit = limit
             sortFilter = sort } 
         // if thread count is greater than 100 or sort doesn't match log error message
         else if (threadLimit > 100 || !sort.match(['relevance','hot','new','comments', 'old'])) {
-            console.log("Bad search request, your results won't be accurate.") }
+            // console.log("Bad search request, your results won't be accurate.") 
+        }
     } 
     // else return an error
     catch (err){
@@ -33,7 +35,7 @@ function userInput(search, limit, sort) {
 
 // // for sort pick one of (relevance, hot, top, new, comments, old)
 //         // at this time date ranges are not possible via Reddit's API
-// userInput('', 100, 'hot')
+// userInput('star wars', 100, 'hot')
 
 module.exports = {
     searchTerm,
