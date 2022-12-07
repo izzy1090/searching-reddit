@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -6,11 +5,12 @@
     vertical-align: baseline;
     font-family: verdana, Arial, Helvetica, sans-serif;
 }
-body{
+body {
     background-color: rgb(218, 224, 230);
 }
 .search-container {
     background-color: rgb(255, 255, 255);
+    padding: 10px;
     flex-grow: 0;
     flex-shrink: 0;
     top: 0;
@@ -25,9 +25,9 @@ body{
     padding: 5px;
 
 }
-#reddit-logo {
-    max-width: 30px;
-    height: 30px;
+#search-bar-icons {
+    max-width: 35px;
+    height: 35px;
     padding: 5px;
     margin: 5px;
     align-items: center;
@@ -40,13 +40,14 @@ body{
     padding: 5px;
     height: 20px;
     width: 250px;
-    align-items: center;
     overflow: hidden;
 }
 .page-contents {
     margin: 20px;
     margin-top: 50px;
-    padding: 10px;
+    padding: 50px;
+    padding-left: 80px;
+    padding-right: 80px;
     display: block;
 }
 .sort-buttons-container {
@@ -87,10 +88,3 @@ body{
     justify-content: flex-start;
     overflow: scroll;
 }
-
-/* #sort-buttons-text {
-    padding: 5px;
-    font-size: small;
-    font-weight: 700;
-    color: rgb(55, 120, 204);
-} */

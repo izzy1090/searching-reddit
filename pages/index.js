@@ -1,55 +1,80 @@
-// currently: http://localhost:3001/
+// might not need these components - possibly delete later
+import { sortFilter, userInput } from "../JS/userInput";
 
-// JS scripts needed to run this script
-const filter = require('../JS/filterData')
-const user = require('../JS/userInput')
- 
-function page ( { results }) {
+
+import Head from 'next/head';
+import Image from 'next/image';
+import redditLogo from '../public/images/reddit_logo.png'
+import searchButton from '../public/images/magnifying-glass.jpg'
+import { filterData } from "../JS/filterData";
+import { useState } from 'react'
+
+function page ( {threads} ) {
+    // declare a state with a state variable userInput to initialize with user entered string
+        // and a function to update our userInput state variable  
+    const [userInput, setSearch] = useState('')
+    // declare a function to invoke our state function and pass in the user entered strings
+        // as passed-in args
+    const searchItems = (search) => {
+        setSearch(search)
+    }
+    // declare a state with a state variable 'posts' to initialize our returned threads with
+        // and a postThreads function to then post those results to the page
+    const [posts, postThreads] = useState('')
+    // declare a function to invoke when clicked on
+    const genSearch = () => {
+        // call the API with our userInput as a passed-in arg
+        apiCall(userInput).then(response=> {
+            // if nothing populates, check your console log to ensure map function is accessing
+                // correct elements
+            console.log(response)
+            // then pass returned response as arg to our postThreads function 
+            postThreads(response.props.threads.map(results=>{
+                return (
+                    <div className="subreddits-container" key={results}>
+                        <header id="threads-sizing">{results.subreddit}</header>
+                        <div id="threads-sizing">{results.author_fullname}</div>
+                        <div id="threads-sizing">{results.title}</div>
+                        <div id="threads-sizing">{results.selftext}</div>
+                        <div id="threads-sizing">Awards Received: {results.total_awards_received}</div>
+                        <div id="threads-sizing">URL: {results.url}</div>
+                    </div>
+                )
+            }))
+        })
+    }
     return (
-        <div>
+        <>
+        <Head>
+            <title>Home</title>
+            <meta charSet='utf-8'></meta>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+        </Head>
             <header>
-                <div class="search-container">
-                    <img src='/public/images/reddit_logo' alt='reddit logo' id="reddit-logo"></img>
+                <div className="search-container">
+                    <Image src={redditLogo} id="search-bar-icons" alt="Png of reddit logo"/>
                     <div id="header-title">subreddits & threads</div>
-                    <div id="search-bar">search reddit...</div>
+                    <input placeholder='search reddit...' onChange={(event)=> searchItems(event.target.value)} typeof='search' id='search-bar'></input>
+                    <Image src={searchButton} id="search-bar-icons" onClick={genSearch} alt='Graphic illustration of a magnifying glass'/>
+                </div>
+                <div className="page-contents">
+                    {[posts]}
                 </div>
             </header>
-            <div>
-                <div>
-                    {
-                        results.map(data=>{
-                            return (
-                                <div class="subreddits-container" key={data}>
-                                    <header id="threads-sizing">{data.subreddit}</header>
-                                    <div id="threads-sizing">{data.author_fullname}</div>
-                                    <div id="threads-sizing">{data.title}</div>
-                                    <div id="threads-sizing">{data.selftext}</div>
-                                    <div id="threads-sizing">Awards Received: {data.total_awards_received}</div>
-                                    <div id="threads-sizing">URL: {data.url}</div>
-                                </div>
-                            )
-                        })
-                    }
-                </div>
-            </div>
-        </div>
+        </>
     )
 }
+export const apiCall = async function getStaticProps (searchTerm) {
 
-// function required for next js to make API calls 
-    // server side instead of client side
-export async function getServerSideProps(context) {
+    console.log('searching...')
+
     // declared variables to use for OAuth with Reddit's API
     const username = process.env.USERNAME;
     const password = process.env.PASSWORD;
     const api_key = process.env.API_KEY;
     const api_secret = process.env.API_SECRET;
     
-    // declared bearer_token variable to initialize 
-    // with bearer token returned from OAuth fetch POST below
-    
-    // fetch data from external API
-    const req = await fetch('https://www.reddit.com/api/v1/access_token', {
+    const threads = await fetch('https://www.reddit.com/api/v1/access_token', {
         method: 'POST',
         headers: {
             'User-Agent': 'User agent',
@@ -60,29 +85,30 @@ export async function getServerSideProps(context) {
             // use the associated account's username and password
             body: `grant_type=password&username=${username}&password=${password}`})
         // await for response from reddit API and convert response into JSON
-        const returnedToken = await req.json()
-        // initialized created JSON to values of an empty object
-        const bearerTokenCache = Object.values(returnedToken)
-        // assign the first key/value pair to bearer token cache
-        const bearerToken = bearerTokenCache[0]
-    // use request generated from above fetch to pass-in a bearer token to authenticate API call
-    const res = await fetch(`https://oauth.reddit.com/r/all/search/?q=${user.searchTerm}&limit=${user.threadLimit}&sort=${user.sortFilter}`, 
-        { headers: {
-            // authorize with previously generated bearer_token here
-            Authorization: `bearer ${bearerToken}`}
+        .then( returnedToken => returnedToken.json() )
+        // assign return data as key/value pairs to an empty object
+        .then( bearerTokenCache => Object.values(bearerTokenCache) )
+        // isolate the actual bearer token to return it for the API call below
+        .then( bearerToken => bearerToken[0] )
+    .then((returnedToken)=> {
+        return fetch(`https://oauth.reddit.com/r/all/search/?q=${searchTerm}&limit=${5}&sort=${'new'}`, 
+            { headers: {
+                // authorize with previously generated bearerToken here
+                Authorization: `bearer ${returnedToken}`}
+            })
+        // convert response from API call into a JSON
+        .then( response => response.json() )
+        // then take rawData and filter it through function components from other scripts
+        .then( rawData => {
+            const childObject = rawData.data;
+            return filterData(childObject);
         })
-    // take response generated from api call and return it as a json
-        // intialize return json to variable
-    const rawData = await res.json()
-    // then process rawData with a filter to remove it from its parent object
-    const trimData = filter.isoChildObj(rawData)
-    // then process the results again with a second filter to map out the results to an object
-    const results = filter.filterData(trimData)
+    })
     return {
-      props: {
-        results
-      } 
+        props: {
+            threads
+        }
     }
 }
 
-export default page
+export default page 
