@@ -33,9 +33,9 @@ function userInput(search, limit, sort) {
     }    
 }
 
-// // for sort pick one of (relevance, hot, top, new, comments, old)
-//         // at this time date ranges are not possible via Reddit's API
-// userInput('star wars', 100, 'hot')
+// for sort pick one of (relevance, hot, top, new, comments, old)
+    // at this time date ranges are not possible via Reddit's API
+userInput('CryptoStock', 100, 'hot')
 
 module.exports = {
     searchTerm,

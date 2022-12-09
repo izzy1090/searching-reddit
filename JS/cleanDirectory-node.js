@@ -1,12 +1,10 @@
 // Dependencies required to run script
 const fs = require('fs');
-const user = require('./userInput')
+const user = require('./userInput-node')
 
 // needed for the 'child process' module of nodejs to execute shell commands
 const {exec} = require('child_process');
 const { stderr } = require('process');
-
-console.log('Ignore the log above, a search is not being made...')
 
 // declare variable to format passed filename from userParameters.js
 // to be an acceptable format for creating file directories
@@ -28,19 +26,20 @@ if (!fs.existsSync(`${folderName}`)){
             console.log(`execution error: ${error}`) }
     }) 
 } 
-
-// otherwise iterate over files and search for strings containing .txt 
-fileDirectory.forEach(el=>{
-    // if fileDirectory has .txt files
-    if (el.includes('.txt')) {
-        // move it to existing directory
-        exec(`mv ${el} ${folderName}`, 
-            (error, stdout, stderr) => {
-                console.log(stdout)
-                console.log(stderr)
-            // if there is an error, log it to the console
-            if (error !== null){
-                console.log(`execution error: ${error}`) }
-        })
-    }
-})
+else  
+    console.log("Directory already exists, moving file into correct folder...")
+    // otherwise iterate over files and search for strings containing .txt 
+    fileDirectory.forEach(el=>{
+        // if fileDirectory has .txt files
+        if (el.includes('.txt')) {
+            // move it to existing directory
+            exec(`mv ${el} ${folderName}`, 
+                (error, stdout, stderr) => {
+                    console.log(stdout)
+                    console.log(stderr)
+                // if there is an error, log it to the console
+                if (error !== null){
+                    console.log(`execution error: ${error}`) }
+            })
+        }
+    })

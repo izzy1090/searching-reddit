@@ -20,6 +20,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
 }
 #header-title {
     padding: 5px;
@@ -37,10 +38,14 @@ body {
     border: 1px solid rgb(204, 204, 204);
     border-radius: 1.25em;
     margin: 10px;
-    padding: 5px;
+    padding: 7px;
     height: 20px;
     width: 250px;
     overflow: hidden;
+}
+.sort-dropdown {
+    padding: 5px;
+    font-size: medium;
 }
 .page-contents {
     margin: 20px;
@@ -49,28 +54,6 @@ body {
     padding-left: 80px;
     padding-right: 80px;
     display: block;
-}
-.sort-buttons-container {
-    display: flex;
-    justify-content: center;
-    overflow: auto;
-}
-.sort-buttons {
-    background-color: rgb(255, 255, 255);
-    border-radius: 4px;
-    border: 1px solid rgb(204, 204, 204);
-    margin: 10px;
-    height: fit-content;
-    width: fit-content;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;    
-}
-#sort-button-images {
-    max-width: 25px;
-    background: none !important;
-    padding: 5px;
 }
 .subreddits-container {
     background-color: rgb(255, 255, 255);

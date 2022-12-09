@@ -1,15 +1,12 @@
-// might not need these components - possibly delete later
-import { sortFilter, userInput } from "../JS/userInput";
-
-
 import Head from 'next/head';
 import Image from 'next/image';
 import redditLogo from '../public/images/reddit_logo.png'
-import searchButton from '../public/images/magnifying-glass.jpg'
 import { filterData } from "../JS/filterData";
 import { useState } from 'react'
+import { DropDown, sortSelection } from './dropDownSortFilters';
 
-function page ( {threads} ) {
+function Page ( {threads} ) {
+
     // declare a state with a state variable userInput to initialize with user entered string
         // and a function to update our userInput state variable  
     const [userInput, setSearch] = useState('')
@@ -27,17 +24,17 @@ function page ( {threads} ) {
         apiCall(userInput).then(response=> {
             // if nothing populates, check your console log to ensure map function is accessing
                 // correct elements
-            console.log(response)
+            console.log(sortSelection)
             // then pass returned response as arg to our postThreads function 
             postThreads(response.props.threads.map(results=>{
                 return (
                     <div className="subreddits-container" key={results}>
-                        <header id="threads-sizing">{results.subreddit}</header>
-                        <div id="threads-sizing">{results.author_fullname}</div>
-                        <div id="threads-sizing">{results.title}</div>
+                        <header id="threads-sizing"><strong>Subreddit</strong>:&nbsp;{results.subreddit}</header>
+                        <div id="threads-sizing"><strong>Username</strong>:&nbsp;{results.author_fullname}</div>
+                        <div id="threads-sizing"><strong>Thread</strong>:&nbsp;{results.title}</div>
                         <div id="threads-sizing">{results.selftext}</div>
-                        <div id="threads-sizing">Awards Received: {results.total_awards_received}</div>
-                        <div id="threads-sizing">URL: {results.url}</div>
+                        <div id="threads-sizing"><strong>Awards Received</strong>:&nbsp;{results.total_awards_received}</div>
+                        <div id="threads-sizing"><strong>URL </strong>:&nbsp;<a href={results.url} target='_blank'>{results.url}</a></div>
                     </div>
                 )
             }))
@@ -54,9 +51,16 @@ function page ( {threads} ) {
                 <div className="search-container">
                     <Image src={redditLogo} id="search-bar-icons" alt="Png of reddit logo"/>
                     <div id="header-title">subreddits & threads</div>
-                    <input placeholder='search reddit...' onChange={(event)=> searchItems(event.target.value)} typeof='search' id='search-bar'></input>
-                    <Image src={searchButton} id="search-bar-icons" onClick={genSearch} alt='Graphic illustration of a magnifying glass'/>
+                    <input placeholder='search reddit...' onChange={(event)=> searchItems(event.target.value)} 
+                    onKeyDown={function(event){
+                        if (event.key === 'Enter') {
+                            genSearch()
+                        } 
+                    }}
+                    typeof='search' id='search-bar'></input>                    
+                    <div>{DropDown()}</div>
                 </div>
+                
                 <div className="page-contents">
                     {[posts]}
                 </div>
@@ -91,7 +95,7 @@ export const apiCall = async function getStaticProps (searchTerm) {
         // isolate the actual bearer token to return it for the API call below
         .then( bearerToken => bearerToken[0] )
     .then((returnedToken)=> {
-        return fetch(`https://oauth.reddit.com/r/all/search/?q=${searchTerm}&limit=${5}&sort=${'new'}`, 
+        return fetch(`https://oauth.reddit.com/r/all/search/?q=${searchTerm}&limit=${100}&sort=${sortSelection}`, 
             { headers: {
                 // authorize with previously generated bearerToken here
                 Authorization: `bearer ${returnedToken}`}
@@ -111,4 +115,4 @@ export const apiCall = async function getStaticProps (searchTerm) {
     }
 }
 
-export default page 
+export default Page 

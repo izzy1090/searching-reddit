@@ -1,3 +1,6 @@
+const readFile = require('./readFile-node')
+const filter = require('./filterData')
+
 // dependency required for encoding API tokens and keys
 const config = require('dotenv').config()
 
@@ -8,7 +11,7 @@ const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch
 const fs = require('fs')
 
 // JS files needed to run this script
-const run = require('./userInput')
+const run = require('./userInput-node')
 
 // initialize variable to current date 
 const today = new Date().toDateString().split(' ').join('_').toLowerCase();
@@ -65,7 +68,7 @@ const oauthSearch = async (filename) => {
     try {
         // promise to fetch a query from reddit's API using user-generated search terms
             // and pull all matching threads
-        return await fetch(`https://oauth.reddit.com/r/all/search/?q=${run.searchTerm}&limit=${run.threadLimit}&sort=${run.sortFilter}`, 
+        return await fetch(`https://oauth.reddit.com/subreddits/search/?q=${run.searchTerm}&limit=${run.threadLimit}&type=comment`, 
         { headers: {
             // authorize with previously generated bearer_token here
             Authorization: `bearer ${bearer_token}`}
@@ -80,6 +83,7 @@ const oauthSearch = async (filename) => {
                 if(err){
                     console.log(err) }
             })
+            console.log(textDoc)
             // return previously initialized variable as an object
             return { textDoc } 
         }) 
@@ -88,6 +92,26 @@ const oauthSearch = async (filename) => {
     }
 }
 
+// order of function invocations to successfully compile current build
+const runScript = async () => {
+    try {
+        // generate access token for authentication with reddit's API
+        return await getAccessToken()
+        // authenticate and perform search using user generated search term and save a file locally
+        .then(() => { return oauthSearch(`${uniqueFilename}`) })
+        // read in saved file from search and assign it to a variable
+        .then(() => { return readFile.asyncReadFile(`${uniqueFilename}.txt`) })
+        // remove rawData from it's parent object and initialize it to a new object
+        .then(rawData => { return filter.isoChildObj(rawData) })
+        // then take returned object and initialize it to evaluated
+            // results of invoking filterData with object as a passed-in arg
+        .then(object => { return filter.filterData(object) })
+    } catch (err) {
+        console.log(err)
+    }
+}
+// invoke runScript function and log the results to the console
+runScript().then(data=>console.log(data))
 module.exports = {
     getAccessToken, 
     oauthSearch,
