@@ -35,13 +35,16 @@ function filterData (object) {
                     subreddit_name_prefixed: val.data.subreddit_name_prefixed,
                     permalink: val.data.permalink,
                     // username of the user who posted the thread
+                    author: val.data.author,
                     author_fullname: val.data.author_fullname,
+                    name: val.data.name,
                     // title of the thread post
                     title: val.data.title,
                     // number of subscribers associated w/the subreddit
                     subreddit_subscribers: val.data.subreddit_subscribers,
                     // links to media posted in the thread
                     url: val.data.url,
+                    permalink: val.data.permalink,
                     // media, links or images posted within the thread
                     media: val.data.media,
                     // number of reactions awarded to the thread

@@ -14,6 +14,7 @@ function Page ( {threads} ) {
     const searchItems = (search) => {
         setSearch(search)
     }
+
     // declare a state with a state variable 'posts' to initialize our returned threads with
         // and a postThreads function to then post those results to the page
     const [posts, postThreads] = useState('')
@@ -30,14 +31,33 @@ function Page ( {threads} ) {
                     results.selftext = 'N/A'
                 } 
                 return (
+                    <>
                     <div className="subreddits-container" key={results}>
-                        <div className="thread-sizing"><div id='thread-category'><strong>Subreddit</strong></div>{results.subreddit}</div>
-                        <div className="thread-sizing"><div id='thread-category'><strong>Username</strong></div>{results.author_fullname}</div>
-                        <div className="thread-sizing"><div id='thread-category'><strong>Thread Name</strong></div>{results.title}</div>
-                        <div className="thread-sizing"><div id='thread-category'><strong>Post</strong></div>{results.selftext}</div>
-                        <div className="thread-sizing"><div id='thread-category'><strong>Awards Received</strong></div>{results.total_awards_received}</div>
-                        <div className="thread-sizing"><div id='thread-category'><strong>URL</strong></div><a href={results.url} target='_blank'>{results.url}</a></div>
+                        <div className="thread-sizing"><div id='thread-category'>
+                            <strong>Subreddit</strong></div>
+                            <a href={`https://www.reddit.com/${results.subreddit_name_prefixed}`} target='_blank'>{results.subreddit_name_prefixed}</a>
+                        </div>
+                        <div className="thread-sizing"><div id='thread-category'>
+                            <strong>Username</strong></div><a href={`https://www.reddit.com/user/${results.author}/`} target='_blank'>{results.author}</a>
+                        </div>
+                        <div className="thread-sizing"><div id='thread-category'>
+                            <strong>Thread Name</strong>
+                            </div>{results.title}
+                        </div>
+                        <div className="thread-sizing"><div id='thread-category'>
+                            <strong>Post</strong></div>{results.selftext}
+                        </div>
+                        <div className="thread-sizing"><div id='thread-category'>
+                            <strong>Awards Received</strong></div>{results.total_awards_received}
+                        </div>
+                        <div className='thread-sizing'><div id='thread-category'>
+                            <strong>Subreddit Subscriber Count</strong></div>{results.subreddit_subscribers}
+                        </div>
+                        <div className="thread-sizing"><div id='thread-category'>
+                            <strong>URL</strong></div><a href={`https://www.reddit.com${results.permalink}`} target='_blank'>{results.permalink}</a>
+                        </div>
                     </div>
+                    </>
                 )
             }))
         })
