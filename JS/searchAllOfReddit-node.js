@@ -1,8 +1,7 @@
 // JS files needed to run this script
-const token = require('./authenticateAPI')
+const token = require('./authenticateAPI-node')
 const filter = require('./filterData')
-const user = require('./userInput')
-const readFile = require('./readFile')
+const readFile = require('./readFile-node')
 
 // order of function invocations to successfully compile current build
 const runScript = async () => {
