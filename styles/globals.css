@@ -22,6 +22,7 @@ body {
     align-items: center;
     justify-content: center;
 }
+
 #header-title {
     padding: 5px;
 
@@ -47,12 +48,14 @@ body {
     padding: 5px;
     font-size: medium;
 }
+
 .page-contents {
     margin: 20px;
     margin-top: 50px;
     padding: 50px;
-    padding-left: 80px;
-    padding-right: 80px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 10px;
     display: block;
 }
 .subreddits-container {
@@ -63,11 +66,76 @@ body {
     margin: 5px;
     display: block;
 }
-#threads-sizing {
-    padding: 10px;
+
+.thread-sizing {
+    padding: 5px;
     margin: 5px;
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    flex-direction: column;
     overflow: scroll;
+}
+#thread-cateogry {
+    padding-bottom: 3px;
+}
+@media screen and (min-width: 0px) and (max-width: 359px) {
+    #search-bar-icons {
+        display: none;
+    }
+    #header-title {
+        display: none;
+    }
+    .page-contents {
+        display: block;
+        padding: 0px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin: 0px;
+        margin-top: 70px;
+    }
+    .subreddits-container {
+        background-color: rgb(255, 255, 255);
+        border-top: 1px solid rgb(204, 204, 204);
+        border-bottom: 1px solid rgb(204, 204, 204);
+        border-left: 0px;
+        border-right: 0px;
+        padding: 3px;
+        margin: 0px;
+        margin-bottom: 1px;
+        margin-top: 1px;
+    }
+}
+@media screen and (min-width: 360px) and (max-width: 767px) {
+    #header-title {
+        display: none
+    }
+    #search-bar {
+        margin: 0px;
+    }
+    .page-contents {
+        padding: 0px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin: 0px;
+        margin-top: 70px;
+    }
+    .subreddits-container {
+        border-top: 1px solid rgb(204, 204, 204);
+        border-bottom: 1px solid rgb(204, 204, 204);
+        border-left: 0px;
+        border-right: 0px;
+        padding: 7px;
+        margin: 0px;
+        margin-bottom: 1px;
+        margin-top: 1px;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+    .page-contents {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .subreddits-container {
+        margin-bottom: 10px;
+        margin-top: 0px
+    }
 }

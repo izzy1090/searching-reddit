@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Image from 'next/image';
 import redditLogo from '../public/images/reddit_logo.png'
 import { filterData } from "../JS/filterData";
@@ -22,19 +21,22 @@ function Page ( {threads} ) {
     const genSearch = () => {
         // call the API with our userInput as a passed-in arg
         apiCall(userInput).then(response=> {
-            // if nothing populates, check your console log to ensure map function is accessing
-                // correct elements
+            // if nothing populates, check your console to ensure map is accessing
+                // the correct elements
             console.log(sortSelection)
             // then pass returned response as arg to our postThreads function 
             postThreads(response.props.threads.map(results=>{
+                if (results.selftext === '') {
+                    results.selftext = 'N/A'
+                } 
                 return (
                     <div className="subreddits-container" key={results}>
-                        <header id="threads-sizing"><strong>Subreddit</strong>:&nbsp;{results.subreddit}</header>
-                        <div id="threads-sizing"><strong>Username</strong>:&nbsp;{results.author_fullname}</div>
-                        <div id="threads-sizing"><strong>Thread</strong>:&nbsp;{results.title}</div>
-                        <div id="threads-sizing">{results.selftext}</div>
-                        <div id="threads-sizing"><strong>Awards Received</strong>:&nbsp;{results.total_awards_received}</div>
-                        <div id="threads-sizing"><strong>URL </strong>:&nbsp;<a href={results.url} target='_blank'>{results.url}</a></div>
+                        <div className="thread-sizing"><div id='thread-category'><strong>Subreddit</strong></div>{results.subreddit}</div>
+                        <div className="thread-sizing"><div id='thread-category'><strong>Username</strong></div>{results.author_fullname}</div>
+                        <div className="thread-sizing"><div id='thread-category'><strong>Thread Name</strong></div>{results.title}</div>
+                        <div className="thread-sizing"><div id='thread-category'><strong>Post</strong></div>{results.selftext}</div>
+                        <div className="thread-sizing"><div id='thread-category'><strong>Awards Received</strong></div>{results.total_awards_received}</div>
+                        <div className="thread-sizing"><div id='thread-category'><strong>URL</strong></div><a href={results.url} target='_blank'>{results.url}</a></div>
                     </div>
                 )
             }))
@@ -42,29 +44,22 @@ function Page ( {threads} ) {
     }
     return (
         <>
-        <Head>
-            <title>Home</title>
-            <meta charSet='utf-8'></meta>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-        </Head>
-            <header>
-                <div className="search-container">
-                    <Image src={redditLogo} id="search-bar-icons" alt="Png of reddit logo"/>
-                    <div id="header-title">subreddits & threads</div>
-                    <input placeholder='search reddit...' onChange={(event)=> searchItems(event.target.value)} 
-                    onKeyDown={function(event){
-                        if (event.key === 'Enter') {
-                            genSearch()
-                        } 
-                    }}
-                    typeof='search' id='search-bar'></input>                    
-                    <div>{DropDown()}</div>
-                </div>
-                
-                <div className="page-contents">
-                    {[posts]}
-                </div>
-            </header>
+            <div className="search-container">
+                <Image src={redditLogo} id="search-bar-icons" alt="Png of reddit logo"/>
+                <div id="header-title">subreddits & threads</div>
+                <input placeholder='search reddit...' onChange={(event)=> searchItems(event.target.value)} 
+                onKeyDown={function(event){
+                    if (event.key === 'Enter') {
+                        genSearch()
+                    } 
+                }}
+                typeof='search' id='search-bar'></input>                    
+                <div>{DropDown()}</div>
+            </div>
+            
+            <div className="page-contents">
+                {[posts]}
+            </div>
         </>
     )
 }
