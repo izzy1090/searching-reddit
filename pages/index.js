@@ -5,7 +5,6 @@ import { useState } from 'react'
 import { DropDown, sortSelection } from './dropDownSortFilters';
 
 function Page ( {threads} ) {
-
     // declare a state with a state variable userInput to initialize with user entered string
         // and a function to update our userInput state variable  
     const [userInput, setSearch] = useState('')
