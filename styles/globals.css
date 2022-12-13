@@ -46,7 +46,9 @@ body {
 }
 .sort-dropdown {
     padding: 5px;
-    font-size: medium;
+    font-size: small;
+    border-radius: 10px;
+    background-color: white;
 }
 
 .page-contents {
@@ -103,13 +105,16 @@ body {
         margin-bottom: 1px;
         margin-top: 1px;
     }
+    .sort-dropdown {
+        max-width: 60px;
+    }
 }
 @media screen and (min-width: 360px) and (max-width: 767px) {
     #header-title {
         display: none
     }
     #search-bar {
-        margin: 0px;
+        margin: 5px;
     }
     .page-contents {
         padding: 0px;
@@ -127,6 +132,9 @@ body {
         margin: 0px;
         margin-bottom: 1px;
         margin-top: 1px;
+    }
+    .sort-dropdown {
+        max-width: 60px;
     }
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {

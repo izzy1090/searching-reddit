@@ -96,7 +96,8 @@ export const apiCall = async function getStaticProps (searchTerm) {
     const threads = await fetch('https://www.reddit.com/api/v1/access_token', {
         method: 'POST',
         headers: {
-            'User-Agent': 'User agent',
+            // User-Agent was triggering a pre-flight response error, may enable at a later date
+            // 'User-Agent': 'User agent',
             'Content-Type': 'application/x-www-form-urlencoded',
             // use reddit app's api_key and api_secret for authorization
                 // btoa is a method that creates a Base64-encoded ASCII string - basically converts binary to string
