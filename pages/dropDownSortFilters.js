@@ -13,10 +13,11 @@ export function DropDown() {
     return(
         <div onClick={changeValue(value)}>
             <select onChange={(e)=>setValue(e.target.value)} className="sort-dropdown">
-                <option value={'old'}>old</option>
+                <option value={'relevance'}>relevance</option>
                 <option value={'hot'}>hot</option>
                 <option value={'top'}>top</option>
                 <option value={'new'}>new</option>
+                <option value={'comments'}>comments</option>
             </select>
         </div>
     )

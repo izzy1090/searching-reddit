@@ -29,16 +29,26 @@ function Page ( {threads} ) {
                 if (results.selftext === '') {
                     results.selftext = 'N/A'
                 } 
+                // declared variable to initialize with a date object using responses return unix timecode
+                const responseDates = new Date(results.created * 1000)
+                // format returned date object into an appropriate string
+                const createdDate = `${responseDates.getMonth()}/${responseDates.getDate()}/${responseDates.getFullYear()}`
                 return (
+                    // Layout of how HTML tags for returned threads
                     <>
+                    
                     <div className="subreddits-container" key={results}>
                         <div className="thread-sizing"><div id='thread-category'>
                             <strong>Subreddit</strong></div>
-                            <a href={`https://www.reddit.com/${results.subreddit_name_prefixed}`} target='_blank'>{results.subreddit_name_prefixed}</a>
+                            <a href={`https://www.reddit.com/${results.subreddit_name_prefixed}`} 
+                                                                target='_blank'>{results.subreddit_name_prefixed}</a>
                         </div>
                         <div className="thread-sizing"><div id='thread-category'>
-                            <strong>Username</strong></div><a href={`https://www.reddit.com/user/${results.author}/`} target='_blank'>{results.author}</a>
+                            <strong>Username</strong></div><a href={`https://www.reddit.com/user/${results.author}/`} 
+                                                                target='_blank'>{results.author}</a>
                         </div>
+                        <div className='thread-sizing'><div id='thread-category'></div>
+                            <strong>Date Created</strong>{createdDate}</div>
                         <div className="thread-sizing"><div id='thread-category'>
                             <strong>Thread Name</strong>
                             </div>{results.title}
@@ -53,19 +63,21 @@ function Page ( {threads} ) {
                             <strong>Subreddit Subscriber Count</strong></div>{results.subreddit_subscribers}
                         </div>
                         <div className="thread-sizing"><div id='thread-category'>
-                            <strong>URL</strong></div><a href={`https://www.reddit.com${results.permalink}`} target='_blank'>{results.permalink}</a>
+                            <strong>URL</strong></div><a href={`https://www.reddit.com${results.permalink}`} 
+                                                            target='_blank'>{results.permalink}</a>
                         </div>
                     </div>
                     </>
                 )
             }))
-        })
+        })  
     }
     return (
+        // Layout of returned HTML tags for the overall page
         <>
             <div className="search-container">
-                <Image src={redditLogo} id="search-bar-icons" alt="Png of reddit logo"/>
-                <div id="header-title">subreddits & threads</div>
+                <Image src={redditLogo} id="reddit-logo" alt="Png of reddit logo"/>
+                {/* <div id="header-title">subreddits & threads</div> */}
                 <input placeholder='search reddit...' onChange={(event)=> searchItems(event.target.value)} 
                 onKeyDown={function(event){
                     if (event.key === 'Enter') {
@@ -75,8 +87,8 @@ function Page ( {threads} ) {
                 typeof='search' id='search-bar'></input>                    
                 <div>{DropDown()}</div>
             </div>
-            
             <div className="page-contents">
+                <div></div>
                 {[posts]}
             </div>
         </>
@@ -110,7 +122,7 @@ export const apiCall = async function getStaticProps (searchTerm) {
         // isolate the actual bearer token to return it for the API call below
         .then( bearerToken => bearerToken[0] )
     .then((returnedToken)=> {
-        return fetch(`https://oauth.reddit.com/r/all/search/?q=${searchTerm}&limit=${100}&sort=${sortSelection}`, 
+        return fetch(`https://oauth.reddit.com/r/all/search/?q=${searchTerm}&sort=${sortSelection}&limit=${100}`, 
             { headers: {
                 // authorize with previously generated bearerToken here
                 Authorization: `bearer ${returnedToken}`}

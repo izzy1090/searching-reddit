@@ -22,12 +22,12 @@ body {
     align-items: center;
     justify-content: center;
 }
-
+/* 
 #header-title {
     padding: 5px;
 
-}
-#search-bar-icons {
+} */
+#reddit-logo {
     max-width: 35px;
     height: 35px;
     padding: 5px;
@@ -79,10 +79,8 @@ body {
 #thread-cateogry {
     padding-bottom: 3px;
 }
+
 @media screen and (min-width: 0px) and (max-width: 359px) {
-    #search-bar-icons {
-        display: none;
-    }
     #header-title {
         display: none;
     }
@@ -110,9 +108,9 @@ body {
     }
 }
 @media screen and (min-width: 360px) and (max-width: 767px) {
-    #header-title {
+    /* #header-title {
         display: none
-    }
+    } */
     #search-bar {
         margin: 5px;
     }

@@ -37,7 +37,10 @@ function filterData (object) {
                     // username of the user who posted the thread
                     author: val.data.author,
                     author_fullname: val.data.author_fullname,
+                    // this is the user's actual username
                     name: val.data.name,
+                    // Unix representation of when the post was created
+                    created: val.data.created,
                     // title of the thread post
                     title: val.data.title,
                     // number of subscribers associated w/the subreddit
@@ -52,9 +55,10 @@ function filterData (object) {
                     // text from the posted thread
                     selftext: val.data.selftext
                 } 
-            })
+            }) 
     } return cache
 }
+
 module.exports = {
     isoChildObj,
     filterData
