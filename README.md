@@ -10,7 +10,9 @@ https://ssl.reddit.com/prefs/apps/
 Add your API Key and API Secret to the .env file you created earlier using the .env_sample as a template. 
 
 Finally run: 
+```
 npm install
+```
 
 You should be good to go! 
 
