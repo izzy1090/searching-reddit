@@ -1,6 +1,6 @@
 # searching-through-sub-reddits
 
-To use program, create a folder in your desired directory where the repo will live locally and clone the main branch in that directory. 
+To use the program via Node JS, create a folder in your desired directory where the repo will live locally and clone the main branch in that directory. 
 
 Create a separate .env file and use the .env_sample to format your .env file. 
 
