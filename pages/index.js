@@ -17,7 +17,7 @@ function Page ( {} ) {
         return (
             <>
                 <div className="search-container">
-                    <Image src={redditLogo} id="reddit-logo" alt="Png of reddit logo"/>
+                    <a href='/'><Image src={redditLogo} id="reddit-logo" alt="Png of reddit logo"/></a>
                     <input placeholder='search reddit...' onChange={(event)=> searchItems(event.target.value)} 
                     onKeyDown={function(event){
                         if (event.key === 'Enter') {
@@ -30,7 +30,7 @@ function Page ( {} ) {
             </>
         )
     }
-   
+    
     // use the postThreads function to return threads to the returnedThreads variable
     const [returnedThreads, postThreads] = useState('')
     // used to invoke a search and generate results
