@@ -1,4 +1,4 @@
-export function introMessage(){
+export function IntroMessage(){
     return(
         <>
         <div className="page-contents">
@@ -31,4 +31,4 @@ export function introMessage(){
     )
 }
 
-export default introMessage
+export default IntroMessage

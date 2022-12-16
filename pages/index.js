@@ -3,22 +3,38 @@ import redditLogo from '../public/images/reddit_logo.png'
 import { useState } from 'react'
 import { DropDown, sortSelection } from './dropDownSortFilters';
 import { apiCall } from './api';
-import introMessage from './introMessage';
+import IntroMessage from './introMessage';
 
-function Page ( {threads} ) {
-    // declare a state with a state variable userInput to initialize with user entered string
-        // and a function to update our userInput state variable  
+function Page ( {} ) {
+     // setSearch initializes userInput with whatever strings are entered into the search bar 
+        // args are passed into searchItems below to initialize userInput with setSearch
     const [userInput, setSearch] = useState('')
-    // declare a function to invoke our state function and pass in the user entered strings
-        // as passed-in args
     const searchItems = (search) => {
         setSearch(search)
     }
-    // declare a state with a state variable 'posts' to initialize our returned threads with
-        // and a postThreads function to then post those results to the page
+    // Search Header for the page so you don't have to copy and paste code multiple times
+    const searchHeader = ()=>{
+        return (
+            <>
+                <div className="search-container">
+                    <Image src={redditLogo} id="reddit-logo" alt="Png of reddit logo"/>
+                    <input placeholder='search reddit...' onChange={(event)=> searchItems(event.target.value)} 
+                    onKeyDown={function(event){
+                        if (event.key === 'Enter') {
+                            handleSearch()
+                        } 
+                    }}
+                    typeof='search' id='search-bar'></input>                    
+                    <div>{DropDown()}</div>
+                </div>
+            </>
+        )
+    }
+   
+    // use the postThreads function to return threads to the returnedThreads variable
     const [returnedThreads, postThreads] = useState('')
-    // declared function to gen. search when event listener is triggered
-    const genSearch = () => {
+    // used to invoke a search and generate results
+    const handleSearch = () => {
         // call the API with our userInput as a passed-in arg
         apiCall(userInput).then(response=> {
             // if nothing populates, check your console to ensure map is accessing
@@ -34,18 +50,18 @@ function Page ( {threads} ) {
                 // format returned date object into an appropriate string
                 const createdDate = `${responseDates.getMonth()}/${responseDates.getDate()}/${responseDates.getFullYear()}`
                 return (
-    
                     // Layout of how HTML tags for returned threads
                     <>
                     <div className="subreddits-container">
                         <div className="thread-sizing"><div id='thread-category'>
                             <strong>Subreddit</strong></div>
-                            <a href={`https://www.reddit.com/${results.subreddit_name_prefixed}`} 
-                                                                target='_blank'>{results.subreddit_name_prefixed}</a>
+                            <div><a href={`https://www.reddit.com/${results.subreddit_name_prefixed}`} 
+                                        target='_blank'>{results.subreddit_name_prefixed}</a></div>
                         </div>
                         <div className="thread-sizing"><div id='thread-category'>
-                            <strong>Username</strong></div><a href={`https://www.reddit.com/user/${results.author}/`} 
-                                                                target='_blank'>{results.author}</a>
+                            <strong>Username</strong></div>
+                            <div><a href={`https://www.reddit.com/user/${results.author}/`} 
+                                    target='_blank'>{results.author}</a></div>
                         </div>
                         <div className='thread-sizing'><div id='thread-category'></div>
                             <strong>Date Created</strong>{createdDate}</div>
@@ -63,8 +79,9 @@ function Page ( {threads} ) {
                             <strong>Subreddit Subscriber Count</strong></div>{results.subreddit_subscribers}
                         </div>
                         <div className="thread-sizing"><div id='thread-category'>
-                            <strong>URL</strong></div><a href={`https://www.reddit.com${results.permalink}`} 
-                                                            target='_blank'>{results.permalink}</a>
+                            <strong>URL</strong></div>
+                            <div><a href={`https://www.reddit.com${results.permalink}`} 
+                                    target='_blank'>{results.permalink}</a></div>
                         </div>
                     </div>
                     </>
@@ -77,36 +94,15 @@ function Page ( {threads} ) {
     if (returnedThreads === '') {
         return(
             <>
-            <div className="search-container">
-                <Image src={redditLogo} id="reddit-logo" alt="Png of reddit logo"/>
-                <input placeholder='search reddit...' onChange={(event)=> searchItems(event.target.value)} 
-                onKeyDown={function(event){
-                    if (event.key === 'Enter') {
-                        genSearch()
-                    } 
-                }}
-                typeof='search' id='search-bar'></input>                    
-                <div>{DropDown()}</div>
-            </div>
-            {introMessage()}
-        </>
+                {searchHeader()}
+                {IntroMessage()}
+            </>
         )
     } 
     return (
-
         // Layout of returned HTML tags for the overall page
         <>
-            <div className="search-container">
-                <Image src={redditLogo} id="reddit-logo" alt="Png of reddit logo"/>
-                <input placeholder='search reddit...' onChange={(event)=> searchItems(event.target.value)} 
-                onKeyDown={function(event){
-                    if (event.key === 'Enter') {
-                        genSearch()
-                    } 
-                }}
-                typeof='search' id='search-bar'></input>                    
-                <div>{DropDown()}</div>
-            </div>
+            {searchHeader()}
             <div className="page-contents">
                 {[returnedThreads]}
             </div>

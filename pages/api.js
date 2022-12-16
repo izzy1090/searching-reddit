@@ -1,15 +1,16 @@
 import { sortSelection } from "./dropDownSortFilters";
 import { filterData } from "../JS/filterData";
 
-export function returnedThreads({threads}) {
+export function ApiResponse() {
     return (
-        
-        threads
-        )
+        {threads}
+    )
 }
-export const apiCall = async function getStaticProps (searchTerm) {    
+
+export const apiCall = async function getStaticProps (searchTerm) {   
     try {
         console.log('searching...')
+      
         // declared variables to use for OAuth with Reddit's API
         const username = process.env.USERNAME;
         const password = process.env.PASSWORD;
@@ -56,4 +57,4 @@ export const apiCall = async function getStaticProps (searchTerm) {
         console.log(error)
     }
 }
-export default returnedThreads
+export default ApiResponse
