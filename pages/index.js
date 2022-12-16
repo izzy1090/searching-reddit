@@ -34,6 +34,7 @@ function Page ( {threads} ) {
                 // format returned date object into an appropriate string
                 const createdDate = `${responseDates.getMonth()}/${responseDates.getDate()}/${responseDates.getFullYear()}`
                 return (
+                    
                     // Layout of how HTML tags for returned threads
                     <>
                     <div className="subreddits-container">
@@ -106,9 +107,10 @@ function Page ( {threads} ) {
                     <p>Planned features include:</p>
                     <ul className='thread-sizing'>
                         <li>1) Search button with color change upon click to indicate to the user a search is being made</li><br></br>
-                        <li>2) Remove or hide threads from the web page after the user is done reading</li><br></br>
-                        <li>3) Export or download Reddit threads as a PDF to the user's desktop computer</li><br></br>
-                        <li>4) Make calls to different endpoints from Reddit's API allowing a user to search for Subreddits</li>
+                        <li>2) A loading state to let the user know a search is being made</li><br></br>
+                        <li>3) Allow user to remove or hide threads from the web page after the user is done reading</li><br></br>
+                        <li>4) Export or download Reddit threads as a PDF to the user's desktop computer</li><br></br>
+                        <li>5) Make calls to different endpoints from Reddit's API allowing a user to search for Subreddits</li>
                     </ul>
 
                     </div>
@@ -116,8 +118,9 @@ function Page ( {threads} ) {
             </div>
         </>
         )
-    }
+    } 
     return (
+
         // Layout of returned HTML tags for the overall page
         <>
             <div className="search-container">

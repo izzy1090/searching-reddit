@@ -1,6 +1,6 @@
 // declare a variable to export out to other scripts
 let searchTerm;
-let sortFilter = "old";
+let sortFilter = "hot";
 let threadLimit = 0;
 
 // need to write userInput function accepts user search term
@@ -13,10 +13,9 @@ function userInput(search, limit, sort) {
             // initialize global variables to match user input
             searchTerm = search
             threadLimit = limit
-            console.log("Hot results are shown by default. Thread count caps at 100.") 
         } 
         // if search, threadLimit and sort are all found 
-        else if (search && threadLimit > 25 || threadLimit < 100 && sort.match(/['relevance','hot','new','comments', 'old']/)) {
+        else if (search && threadLimit > 25 || threadLimit < 100 && sort.match(/['relevance','hot','new','comments', 'top']/)) {
             // initialize all variables to passed-in args
             console.log(`Sorting threads by ${sort}... Thread count caps at 100.`)
             searchTerm = search

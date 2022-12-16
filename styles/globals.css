@@ -43,7 +43,7 @@ body {
     padding: 5px;
     font-size: small;
     border-radius: 10px;
-    background-color: white;
+    background-color: rgb(246, 247, 248);
 }
 
 .page-contents {
@@ -103,9 +103,6 @@ body {
     }
 }
 @media screen and (min-width: 360px) and (max-width: 767px) {
-    /* #header-title {
-        display: none
-    } */
     #search-bar {
         margin: 5px;
     }
