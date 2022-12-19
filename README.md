@@ -7,7 +7,7 @@ Create a separate .env file and use the .env_sample to format your .env file.
 Go to the below URL and use your reddit account to create an app. Write your desired app title, app description, choose "script" for personal use, and enter in your desired redirect URL.
 https://ssl.reddit.com/prefs/apps/
 
-Add your API Key and API Secret to the .env file you created earlier using the .env_sample as a template. 
+Add generated API Key and API Secret from creating an app via the link above as well as include your Reddit credentials to the .env file created earlier using the .env_sample as a template. 
 
 Finally run: 
 ```
