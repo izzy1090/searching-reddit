@@ -1,8 +1,9 @@
-import { sortSelection } from "./dropDownSortFilters";
-import { filterData } from "../JS/filterData";
+import { sortSelection } from "../dropDownSortFilters";
+import { filterData } from "../../JS/filterData";
 import { useState } from "react";
 
 function ApiResponse (){
+    
     const [isLoading, setLoading] = useState(false)
     return (
         <></>
@@ -14,14 +15,12 @@ export const apiCall = async function getStaticProps (searchTerm) {
     try {
         console.log('searching...')
 
-        
-
         // declared variables to use for OAuth with Reddit's API
         const username = process.env.USERNAME;
         const password = process.env.PASSWORD;
         const api_key = process.env.API_KEY;
         const api_secret = process.env.API_SECRET;
-        
+
         const threads = await fetch('https://www.reddit.com/api/v1/access_token', {
             method: 'POST',
             headers: {
