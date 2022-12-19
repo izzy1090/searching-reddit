@@ -2,10 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   env: {
-    USERNAME: 'mike-the-izz',
-    PASSWORD: 'Timeformore13!',
-    API_KEY: 'gFhtR4TLWPpZbZ5sFSZwXg',
-    API_SECRET: 'DP7IqOVj9_-Yhf1dqDNHSY3vKjFezA'
+    USERNAME: process.env.USERNAME,
+    PASSWORD: process.env.PASSWORD,
+    API_KEY: process.env.API_KEY,
+    API_SECRET: process.env.API_SECRET
   }
 }
 

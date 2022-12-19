@@ -1,8 +1,11 @@
 import Head from 'next/head'
 import '../styles/globals.css'
-
+import { useState } from 'react'
 
 function MyApp({ Component, pageProps }) {
+  const [isLoading, setLoading] = useState(false)
+
+  
   return (
     <>
       <Head>
@@ -12,7 +15,6 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <div>
       <Component {...pageProps} />
-  
       </div>
     </>
   )
