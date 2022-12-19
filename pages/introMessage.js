@@ -8,9 +8,7 @@ export function IntroMessage(){
                         <p>Currently you can use the search bar above to enter keyword(s) to generate threads returned from Reddit's API.</p><br></br>
                         <p>The purpose of this project was to utilize Reddit's API to generate results 
                             and dynamically render posts for the user. The program uses <b> JavaScript</b>, 
-                            <b> CSS</b>,<b> React JS</b> and <b> Next JS</b>.</p><br></br>
-                        <p>Next JS allows JavaScript to make calls to Reddit's API and 
-                            render page responses with React JS / CSS each time.</p><br></br> 
+                            <b> CSS</b>,<b> React JS</b> and <b> Next JS</b> as a framework.</p><br></br>
 
                         <p>If you would like to use this program via <b> Node JS</b> to schedule recurring searches 
                         and download them locally, please visit the GitHub linked below and follow the directions via the ReadMe to use it with your preferred IDE.</p><br></br>
