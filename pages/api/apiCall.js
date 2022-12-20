@@ -1,20 +1,9 @@
 import { sortSelection } from "../dropDownSortFilters";
 import { filterData } from "../../JS/filterData";
-import { useState } from "react";
 
-function ApiResponse (){
-    
-    const [isLoading, setLoading] = useState(false)
-    return (
-        <></>
-    )
-    
-}
-
-export const apiCall = async function getStaticProps (searchTerm) {   
+export const apiCall = async function getStaticProps (searchTerm) {  
     try {
         console.log('searching...')
-
         // declared variables to use for OAuth with Reddit's API
         const username = process.env.USERNAME;
         const password = process.env.PASSWORD;
@@ -24,8 +13,6 @@ export const apiCall = async function getStaticProps (searchTerm) {
         const threads = await fetch('https://www.reddit.com/api/v1/access_token', {
             method: 'POST',
             headers: {
-                // User-Agent was triggering a pre-flight response error, may enable at a later date
-                // 'User-Agent': 'User agent',
                 'Content-Type': 'application/x-www-form-urlencoded',
                 // use reddit app's api_key and api_secret for authorization
                     // btoa is a method that creates a Base64-encoded ASCII string - basically converts binary to string
@@ -61,4 +48,5 @@ export const apiCall = async function getStaticProps (searchTerm) {
         console.log(error)
     }
 }
-export default ApiResponse
+
+export default apiCall

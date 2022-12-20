@@ -6,7 +6,8 @@ import { apiCall } from './api/apiCall';
 import IntroMessage from './introMessage';
 
 function Page ( {} ) {
-     // setSearch initializes userInput with whatever strings are entered into the search bar 
+    const [isLoading, setLoading] = useState(false)
+    // setSearch initializes userInput with whatever strings are entered into the search bar 
         // args are passed into searchItems below to initialize userInput with setSearch
     const [userInput, setSearch] = useState('')
     const searchItems = (search) => {
@@ -21,6 +22,7 @@ function Page ( {} ) {
                     <input placeholder='search reddit...' onChange={(event)=> searchItems(event.target.value)} 
                     onKeyDown={function(event){
                         if (event.key === 'Enter') {
+                            setLoading(true)
                             handleSearch()
                         } 
                     }}
@@ -33,15 +35,17 @@ function Page ( {} ) {
     
     // use the postThreads function to return threads to the returnedThreads variable
     const [returnedThreads, postThreads] = useState('')
+    
     // used to invoke a search and generate results
     const handleSearch = () => {
         // call the API with our userInput as a passed-in arg
         apiCall(userInput).then(response=> {
+            setLoading(false)
             // if nothing populates, check your console to ensure map is accessing
                 // the correct elements
             console.log(sortSelection)
             // then pass returned response as arg to our postThreads function 
-            postThreads(response.props.threads.map(results=>{
+            postThreads(response.props.threads.map((results, index)=>{
                 if (results.selftext === '') {
                     results.selftext = 'N/A'
                 } 
@@ -52,7 +56,7 @@ function Page ( {} ) {
                 return (
                     // Layout of how HTML tags for returned threads
                     <>
-                    <div className="subreddits-container">
+                    <div className="subreddits-container" key={index}>
                         <div className="thread-sizing"><div id='thread-category'>
                             <strong>Subreddit</strong></div>
                             <div><a href={`https://www.reddit.com/${results.subreddit_name_prefixed}`} 
@@ -89,22 +93,19 @@ function Page ( {} ) {
             })) 
          }) 
     }
+    
     // Intro page for when the user first loads the site 
         // Essentially if no threads are returned from the API, display the fragment below
-    if (returnedThreads === '') {
-        return(
-            <>
-                {searchHeader()}
-                {IntroMessage()}
-            </>
-        )
-    } 
     return (
         // Layout of returned HTML tags for the overall page
         <>
             {searchHeader()}
             <div className="page-contents">
-                {[returnedThreads]}
+                {returnedThreads.length === 0 && isLoading == false ? IntroMessage() : null}
+                {isLoading ? <div className='loading-animation'>
+                <div className='center-animation'><span class="loader-animation"></span></div>
+                    
+                </div> : returnedThreads}
             </div>
         </>
     )

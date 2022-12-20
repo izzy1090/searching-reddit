@@ -70,6 +70,7 @@ body {
     display: flex;
     flex-direction: column;
     overflow: scroll;
+    white-space: break-spaces;
 }
 #thread-cateogry {
     padding-bottom: 3px;
@@ -137,3 +138,28 @@ body {
         margin-top: 0px
     }
 }
+
+/* Loading animation to play between searches */
+.center-animation {
+    text-align: center;
+    margin: 30px;
+}
+.loader-animation {
+        width: 48px;
+        height: 48px;
+        border: 5px solid #FFF;
+        border-bottom-color: rgb(232, 80, 48);
+        border-radius: 50%;
+        display: inline-block;
+        box-sizing: border-box;
+        animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+} 
