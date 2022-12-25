@@ -22,8 +22,13 @@ Currently you need to enter search parameters into a function userInput on userI
 
 CLI commands for various features: 
 // runs the program to generate a search
-node searchReddit.js
+```
+node searchAllOfReddit-node.js
+```
+
 // cleans up your file directory (note: use this script BEFORE changing search parameters to keep results organized)
+```
 node cleanDirectory.js
+```
 
 A cleaner README is intended for the future.
