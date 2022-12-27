@@ -1,6 +1,6 @@
 # searching-reddit
 
-If you would like to use the search engine via the web, please visit the below URL, enter keyword(s) into the search bar at the top and press the 'enter' / 'return':
+If you would like to use the search engine via the web, please visit the below URL, enter keyword(s) into the search bar at the top and press 'enter' / 'return':
 
 https://searchingreddit.vercel.app/
 
