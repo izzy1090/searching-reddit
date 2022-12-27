@@ -8,7 +8,7 @@ To use the program via Node JS, create a folder in your desired directory where 
 
 Create a separate .env file within the JS folder and use the .env_sample to format your .env file. 
 
-Go to the below URL and use your Reddit account to create an app. Write your desired app title, app description, choose "script" for personal use, and enter in your desired redirect URL.
+Go to the below URL and use your Reddit account to create an app. Write your desired app title (this does not affect functionality, so use whatever you want), app description, choose "script" for personal use, and enter in your desired redirect URL.
 https://ssl.reddit.com/prefs/apps/
 
 Then add the generated API Key and API Secret as well as include your Reddit username / password to the .env file created earlier. 
@@ -18,13 +18,8 @@ Finally run:
 npm install
 ```
 
-You should be good to go! 
+Current CLI commands:
 
-Before you run your first search. 
-
-Currently you need to enter search parameters into a function userInput on userInput.js file. The function accepts three arguments: search term (string), number of results (you cap at 100 threads), and how you want your results sorted (relevance, hot, top, new, comments, old).
-
-CLI commands for various features: 
 // runs the program to generate a search
 ```
 node searchAllOfReddit-node.js
