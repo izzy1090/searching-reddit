@@ -30,3 +30,13 @@ Cleans the your file directory (note: use this script BEFORE changing search par
 ```
 node cleanDirectory.js
 ```
+
+Planned features include:
+
+1) Search button with color change upon click to indicate to the user a search is being made
+
+2) Allow user to remove or hide threads from the web page after the user is done reading
+
+3) Export or download Reddit threads as a PDF via the UI to the user's desktop computer
+
+4) Make calls to different endpoints from Reddit's API allowing a user to search for Subreddits
