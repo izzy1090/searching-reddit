@@ -21,12 +21,12 @@ npm install
 
 Current CLI commands:
 
-// runs the program to generate a search
+Executes the program to perform a search:
 ```
 node searchAllOfReddit-node.js
 ```
 
-// cleans up your file directory (note: use this script BEFORE changing search parameters to keep results organized)
+Cleans the your file directory (note: use this script BEFORE changing search parameters to keep results organized):
 ```
 node cleanDirectory.js
 ```
