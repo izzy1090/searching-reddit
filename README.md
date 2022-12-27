@@ -1,7 +1,7 @@
-# searching-through-reddit
+# searching-reddit
 
 If you would like to use the Reddit search engine via the web please visit the below link and enter search terms into the search bar at the top:
-
+https://searchingreddit.vercel.app/
 
 To use the program via Node JS, create a folder in your desired directory where the repo will live locally and clone the main branch in that directory. 
 
