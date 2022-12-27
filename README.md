@@ -1,5 +1,7 @@
 # searching-reddit
 
+The purpose of this project was to utilize Reddit's API to generate search results and dynamically render reddit posts for the user. The program uses JavaScript, CSS, React JS and Next JS as a framework.
+
 If you would like to use the search engine via the web, please visit the below URL, enter keyword(s) into the search bar at the top and press 'enter' / 'return':
 
 https://searchingreddit.vercel.app/
