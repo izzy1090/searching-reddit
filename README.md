@@ -9,6 +9,7 @@ To use the program via Node JS, create a folder in your desired directory where 
 Create a separate .env file within the JS folder and use the .env_sample to format your .env file. 
 
 Go to the below URL and use your Reddit account to create an app. Write your desired app title (this does not affect functionality, so use whatever you want), app description, choose "script" for personal use, and enter in your desired redirect URL.
+
 https://ssl.reddit.com/prefs/apps/
 
 Then add the generated API Key and API Secret as well as include your Reddit username / password to the .env file created earlier. 
