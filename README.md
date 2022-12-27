@@ -1,16 +1,17 @@
 # searching-reddit
 
-If you would like to use the Reddit search engine via the web please visit the below link and enter search terms into the search bar at the top:
+If you would like to use the search engine via the web, please visit the below link and enter your keyword(s) into the search bar at the top:
+
 https://searchingreddit.vercel.app/
 
-To use the program via Node JS, create a folder in your desired directory where the repo will live locally and clone the main branch in that directory. 
+To use the program via Node JS, create a folder in your desired directory where the repo will live locally and clone the main branch into that main directory. 
 
-Create a separate .env file and use the .env_sample to format your .env file. 
+Create a separate .env file within the JS folder and use the .env_sample to format your .env file. 
 
-Go to the below URL and use your reddit account to create an app. Write your desired app title, app description, choose "script" for personal use, and enter in your desired redirect URL.
+Go to the below URL and use your Reddit account to create an app. Write your desired app title, app description, choose "script" for personal use, and enter in your desired redirect URL.
 https://ssl.reddit.com/prefs/apps/
 
-Add generated API Key and API Secret from creating an app via the link above as well as include your Reddit credentials to the .env file created earlier using the .env_sample as a template. 
+Then add the generated API Key and API Secret as well as include your Reddit username / password to the .env file created earlier. 
 
 Finally run: 
 ```
