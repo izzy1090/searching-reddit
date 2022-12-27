@@ -1,4 +1,4 @@
-# searching-through-sub-reddits
+# searching-through-reddit
 
 If you would like to use the Reddit search engine via the web please visit the below link and enter search terms into the search bar at the top:
 
