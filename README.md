@@ -1,5 +1,8 @@
 # searching-through-sub-reddits
 
+If you would like to use the Reddit search engine via the web please visit the below link and enter search terms into the search bar at the top:
+
+
 To use the program via Node JS, create a folder in your desired directory where the repo will live locally and clone the main branch in that directory. 
 
 Create a separate .env file and use the .env_sample to format your .env file. 
@@ -16,7 +19,7 @@ npm install
 
 You should be good to go! 
 
-Real quick, before you run your first search. 
+Before you run your first search. 
 
 Currently you need to enter search parameters into a function userInput on userInput.js file. The function accepts three arguments: search term (string), number of results (you cap at 100 threads), and how you want your results sorted (relevance, hot, top, new, comments, old).
 
@@ -30,5 +33,3 @@ node searchAllOfReddit-node.js
 ```
 node cleanDirectory.js
 ```
-
-A cleaner README is intended for the future.
