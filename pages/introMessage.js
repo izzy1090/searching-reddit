@@ -6,8 +6,8 @@ export function IntroMessage(){
                 <p>Hello and welcome to my Reddit search engine!</p><br></br>
                 <p>Currently you can use the search bar above to enter keyword(s) to generate threads returned from Reddit's API.</p><br></br>
                 <p>The purpose of this project was to utilize Reddit's API to generate results 
-                    and dynamically render posts for the user. The program uses JavaScript, 
-                    CSS/HTML, React and Next.js as a framework.</p><br></br>
+                    and dynamically render posts for the user. The website uses JavaScript, 
+                    CSS, React/JSX and Next.js as a framework.</p><br></br>
 
                 <p>If you would like to use this program via Node.js to
                 download them locally, please visit the GitHub linked below and follow the directions via the ReadMe to use it with your preferred IDE.</p><br></br>

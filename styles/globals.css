@@ -131,8 +131,8 @@ body {
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
     .page-contents {
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-left: 50px;
+        padding-right: 50px;
     }
     .subreddits-container {
         margin-bottom: 10px;
