@@ -2,7 +2,7 @@ export function IntroMessage(){
     return(
         <>
             <div className='subreddits-container' id='landing-page'>
-                <p><strong>Note From The Developer:</strong></p>
+                <p><strong>Note From Developer:</strong></p>
                 <p>Hello and welcome to my Reddit search engine!</p><br></br>
                 <p>Currently you can use the search bar above to enter keyword(s) to generate threads returned from Reddit's API.</p><br></br>
                 <p>The purpose of this project was to utilize Reddit's API to generate results 
