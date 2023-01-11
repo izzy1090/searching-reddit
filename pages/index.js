@@ -51,8 +51,21 @@ function Page ( {} ) {
                 } 
                 // declared variable to initialize with a date object using responses return unix timecode
                 const responseDates = new Date(results.created * 1000)
+
+                // because getMonth() returns integers 0 for Jan., 1 for Feb.
+                    // I had to increment values below 10 and add a '0' afterwards
+                function monthConverter(month) {
+                    if(month >= 0 && month <= 9){
+                        let monthToIncrement = month;
+                        monthToIncrement++;
+                        const addZero = '0' + monthToIncrement;
+                        return addZero;
+                    } else return month;
+                }
+                const months = monthConverter(responseDates.getMonth())
+
                 // format returned date object into an appropriate string
-                const createdDate = `${responseDates.getMonth()}/${responseDates.getDate()}/${responseDates.getFullYear()}`
+                const createdDate = `${months}/${responseDates.getDate()}/${responseDates.getFullYear()}`
                 return (
                     // Layout of how HTML tags for returned threads
                     <>

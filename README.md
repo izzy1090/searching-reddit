@@ -42,3 +42,7 @@ Planned features include:
 3) Export or download Reddit threads as a PDF via the UI to the user's desktop computer
 
 4) Make calls to different endpoints from Reddit's API allowing a user to search for Subreddits
+
+5) Back button to allow the user to navigate back to the homepage
+
+6) Display the first 10 threads and as the user scrolls down the page, additional results display
