@@ -1,4 +1,4 @@
-import { sortSelection } from "../dropDownSortFilters";
+import { sortSelection } from "../components/dropDownSortFilters";
 import { filterData } from "../../JS/filterData";
 
 export const apiCall = async function getStaticProps (searchTerm) {  

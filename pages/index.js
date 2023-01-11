@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import redditLogo from '../public/images/reddit_logo.png'
 import { useState } from 'react'
-import { DropDown, sortSelection } from './dropDownSortFilters';
-import { apiCall } from './api/apiCall';
-import IntroMessage from './introMessage';
+import { DropDown, sortSelection } from './components/dropDownSortFilters';
+import { apiCall } from './api/apiClient';
+import IntroMessage from './components/introMessage';
 
 function Page ( {} ) {
     const [isLoading, setLoading] = useState(false)
