@@ -5,25 +5,26 @@ import { DropDown, sortSelection } from './components/dropDownSortFilters';
 import { apiCall } from './api/apiClient';
 import IntroMessage from './components/introMessage';
 
-function Page ( {} ) {
+function Page (  ) {
     const [isLoading, setLoading] = useState(false)
     // setSearch initializes userInput with whatever strings are entered into the search bar 
-        // args are passed into searchItems below to initialize userInput with setSearch
+        // args are passed into SearchItems below to initialize userInput with setSearch
     const [userInput, setSearch] = useState('')
-    const searchItems = (search) => {
+    const SearchItems = (search) => {
         setSearch(search)
     }
-    // Search Header for the page so you don't have to copy and paste code multiple times
-    const searchHeader = ()=>{
+
+    // Header where the search bar lives and for the user to enter in search terms
+    const SearchHeader = ()=>{
         return (
             <>
                 <div className="search-container">
                     <a href='/'><Image src={redditLogo} id="reddit-logo" alt="Png of reddit logo"/></a>
-                    <input placeholder='search reddit...' onChange={(event)=> searchItems(event.target.value)} 
+                    <input placeholder='search reddit...' onChange={(event)=> SearchItems(event.target.value)} 
                     onKeyDown={function(event){
                         if (event.key === 'Enter') {
                             setLoading(true)
-                            handleSearch()
+                            HandleSearch()
                         } 
                     }}
                     typeof='search' id='search-bar'></input>                    
@@ -33,11 +34,12 @@ function Page ( {} ) {
         )
     }
     
-    // use the postThreads function to return threads to the returnedThreads variable
+    // use the postThreads function to return threads to the returnedThreads prop
     const [returnedThreads, postThreads] = useState('')
     
+
     // used to invoke a search and generate results
-    const handleSearch = () => {
+    const HandleSearch = () => {
         // call the API with our userInput as a passed-in arg
         apiCall(userInput).then(response=> {
             setLoading(false)
@@ -45,13 +47,14 @@ function Page ( {} ) {
                 // the correct elements
             console.log(sortSelection)
             // then pass returned response as arg to our postThreads function 
-            postThreads(response.props.threads.map((results, index)=>{
+            postThreads(response.props.threads.map((results)=>{
                 if (results.selftext === '') {
                     results.selftext = 'N/A'
                 } 
+
+
                 // declared variable to initialize with a date object using responses return unix timecode
                 const responseDates = new Date(results.created * 1000)
-
                 // because getMonth() returns integers 0 for Jan., 1 for Feb.
                     // I had to increment values below 10 and add a '0' afterwards
                 function monthConverter(month) {
@@ -63,23 +66,24 @@ function Page ( {} ) {
                     } else return month;
                 }
                 const months = monthConverter(responseDates.getMonth())
-
                 // format returned date object into an appropriate string
                 const createdDate = `${months}/${responseDates.getDate()}/${responseDates.getFullYear()}`
+
+
                 return (
                     // Layout of how HTML tags for returned threads
                     <>
-                    <div className="subreddits-container" key={index}>
+                    <div className="subreddits-container">
                         <div className="thread-sizing"><div id='thread-category'>
                             <strong>Subreddit</strong></div>
                             <div><a href={`https://www.reddit.com/${results.subreddit_name_prefixed}`} 
                                         target='_blank'>{results.subreddit_name_prefixed}</a></div>
                         </div>
-                        <div className="thread-sizing"><div id='thread-category'>
+                        <div className="thread-sizing" key={'key2'}><div id='thread-category'>
                             <strong>Username</strong></div>
                             <div><a href={`https://www.reddit.com/user/${results.author}/`} 
                                     target='_blank'>{results.author}</a></div>
-                        </div>
+                        </div> 
                         <div className='thread-sizing'><div id='thread-category'></div>
                             <strong>Date Created</strong>{createdDate}</div>
                         <div className="thread-sizing"><div id='thread-category'>
@@ -112,12 +116,11 @@ function Page ( {} ) {
     return (
         // Layout of returned HTML tags for the overall page
         <>
-            {searchHeader()}
+            {SearchHeader()}
             <div className="page-contents">
                 {returnedThreads.length === 0 && isLoading == false ? IntroMessage() : null}
                 {isLoading ? <div className='loading-animation'>
-                <div className='center-animation'><span class="loader-animation"></span></div>
-                    
+                <div className='center-animation'><span className="loader-animation"></span></div>
                 </div> : returnedThreads}
             </div>
         </>

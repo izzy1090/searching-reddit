@@ -2,7 +2,7 @@ export function IntroMessage(){
     return(
         <>
             <div className='subreddits-container' id='landing-page'>
-                <p><strong>Note From Developer:</strong></p>
+                <p><strong>Note From Developer:</strong></p><br></br>
                 <p>Hello and welcome to my Reddit search engine!</p><br></br>
                 <p>Currently you can use the search bar above to enter keyword(s) to generate threads returned from Reddit's API.</p><br></br>
                 <p>The purpose of this project was to utilize Reddit's API to generate results 
@@ -15,7 +15,7 @@ export function IntroMessage(){
                 <a href='https://github.com/izzy1090/searching-through-sub-reddits' target={'_blank'}>GitHub Repository</a>
                 <br></br><br></br>
                 
-                <p>Planned features include:</p>
+                <p><strong>Planned features include:</strong></p>
                 <ul className='thread-sizing'>
                     <li>1) Search button with color change upon click to indicate to the user a search is being made</li><br></br>
                     <li>2) Allow user to remove or hide threads from the web page after the user is done reading</li><br></br>
