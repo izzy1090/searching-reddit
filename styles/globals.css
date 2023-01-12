@@ -64,6 +64,12 @@ body {
     display: block;
 }
 
+.search-button{
+    padding: 5px;
+    margin: 4px;
+    border-radius: 4px;
+}
+
 .thread-sizing {
     padding: 5px;
     margin: 5px;
