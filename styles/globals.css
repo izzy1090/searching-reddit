@@ -33,7 +33,6 @@ body {
     color: rgb(53, 52, 52);
     border: 1px solid rgb(204, 204, 204);
     border-radius: 1.25em;
-    margin: 10px;
     padding: 7px;
     height: 20px;
     width: 250px;
@@ -65,9 +64,11 @@ body {
 }
 
 .search-button{
+    max-width: 25px;
+    height: 25px;
     padding: 5px;
-    margin: 4px;
-    border-radius: 4px;
+    margin: 5px;
+    align-items: center;
 }
 
 .thread-sizing {
