@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import redditLogo from '../public/images/reddit_logo.png'
-import searchButton from '../public/images/magnifying-glass-icon_vecteezy.svg'
+import searchButton from '../public/images/not-active-magnifying-glass-icon_vecteezy.svg'
 import { useState } from 'react'
 import { DropDown, sortSelection } from './components/dropDownSortFilters';
 import { apiCall } from './api/apiClient';
@@ -30,10 +30,8 @@ function Page (  ) {
                         } 
                     }}
                     typeof='search' id='search-bar'></input>
-                    <Image src={searchButton} className='search-button' 
-                        onClick={ () => { setLoading(true); HandleSearch() }}
-                            Search
-                        />                    
+                    <Image src={searchButton} className='search-button' alt='Svg of Magnifying glass, image pulled from "Vecteezy.com"' 
+                        onClick={ () => { setLoading(true); HandleSearch() }} />                    
                     <div>{ DropDown() }</div>
                 </div>
             </>

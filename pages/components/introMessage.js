@@ -17,12 +17,11 @@ export function IntroMessage(){
                 
                 <p><strong>Planned features include:</strong></p>
                 <ul className='thread-sizing'>
-                    <li>1) Need to animate search button (i.e. the magnifying glass) and add a click animation to show when a search is being made</li><br></br>
+                    <li>1) Export or download Reddit threads as a PDF via the UI to the user's desktop computer</li><br></br>
                     <li>2) Allow user to remove or hide threads from the web page after the user is done reading</li><br></br>
-                    <li>3) Export or download Reddit threads as a PDF via the UI to the user's desktop computer</li><br></br>
-                    <li>4) Make calls to different endpoints from Reddit's API allowing a user to search for Subreddits</li><br></br>
-                    <li>5) Back button to allow the user to navigate back to the homepage</li><br></br>
-                    <li>6) Display the first 10 threads and as the user scrolls down the page, additional results display</li><br></br>
+                    <li>3) Make calls to different endpoints from Reddit's API allowing a user to search for Subreddits</li><br></br>
+                    <li>4) Back button to allow the user to navigate back to the homepage</li><br></br>
+                    <li>5) Display the first 10 threads and as the user scrolls down the page, additional results display</li><br></br>
                 </ul>
             </div>
         </>
