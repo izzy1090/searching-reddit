@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import redditLogo from '../public/images/reddit_logo.png'
+import searchButton from '../public/images/magnifying-glass-icon_vecteezy.svg'
 import { useState } from 'react'
 import { DropDown, sortSelection } from './components/dropDownSortFilters';
 import { apiCall } from './api/apiClient';
@@ -29,10 +30,10 @@ function Page (  ) {
                         } 
                     }}
                     typeof='search' id='search-bar'></input>
-                    <button className='search-button' 
-                        onClick={ () => { setLoading(true); HandleSearch() }}>
+                    <Image src={searchButton} className='search-button' 
+                        onClick={ () => { setLoading(true); HandleSearch() }}
                             Search
-                        </button>                    
+                        />                    
                     <div>{ DropDown() }</div>
                 </div>
             </>
