@@ -10,7 +10,7 @@ body {
 }
 .search-container {
     background-color: rgb(255, 255, 255);
-    padding: 10px;
+    padding: 5px;
     flex-grow: 0;
     flex-shrink: 0;
     top: 0;
@@ -28,10 +28,6 @@ body {
     padding: 5px;
     margin: 5px;
     align-items: center;
-}
-
-#reddit-logo:hover{
-
 }
 
 #search-bar {
