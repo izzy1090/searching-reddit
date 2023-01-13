@@ -4,7 +4,7 @@ Hello and welcome to my Reddit search engine!
 
 Currently you can use the search bar above to enter keyword(s) to generate threads returned from Reddit's API.
 
-The purpose of this project was to utilize Reddit's API to generate results and dynamically render posts for the user. The website uses JavaScript, CSS, React/JSX and Next.js as a framework.
+The website uses JavaScript, CSS, React/JSX and Next.js as a framework.
 
 If you would like to use the search engine, please visit the below URL, enter keyword(s) into the search bar at the top and press 'enter' / 'return' or press the magnifying glass on the right (i.e. the search button):
 
