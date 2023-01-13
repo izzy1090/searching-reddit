@@ -1,22 +1,26 @@
 # searching-reddit
 
-The purpose of this project was to utilize Reddit's API to generate search results and dynamically render reddit posts for the user. The program uses JavaScript, CSS, React JS and Next JS as a framework.
+Hello and welcome to my Reddit search engine!
 
-If you would like to use the search engine via the web, please visit the below URL, enter keyword(s) into the search bar at the top and press 'enter' / 'return':
+Currently you can use the search bar above to enter keyword(s) to generate threads returned from Reddit's API.
+
+The purpose of this project was to utilize Reddit's API to generate results and dynamically render posts for the user. The website uses JavaScript, CSS, React/JSX and Next.js as a framework.
+
+If you would like to use the search engine, please visit the below URL, enter keyword(s) into the search bar at the top and press 'enter' / 'return' or press the magnifying glass on the right (i.e. the search button):
 
 https://searchingreddit.vercel.app/
 
-To use the program via Node JS, create a folder in your desired directory where the repo will live locally and clone the main branch into that main directory. 
+However if you would like to use the program via Node.js, create a folder in your desired directory where the repo will live locally and clone the main branch into that directory. 
 
 Create a separate .env file within the JS folder and use the .env_sample to format your .env file. 
 
-Go to the below URL and use your Reddit account to create an app. Write your desired app title (this does not affect functionality, so use whatever you want), app description, choose "script" for personal use, and enter in your desired redirect URL.
+Go to the below URL and use your Reddit account to create an app. Write your desired app title (this does not affect functionality, so use whatever title you want), an app description, choose "script" for personal use, and enter in your desired redirect URL (this can be anything).
 
 https://ssl.reddit.com/prefs/apps/
 
 Then add the generated API Key and API Secret as well as include your Reddit username / password to the .env file created earlier. 
 
-Finally run: 
+Finally run to install all the required dependencies: 
 ```
 npm install
 ```
@@ -35,14 +39,12 @@ node cleanDirectory.js
 
 Planned features include:
 
-1) Search button with color change upon click to indicate to the user a search is being made
+1) Export or download Reddit threads as a PDF via the UI to the user's desktop computer
 
 2) Allow user to remove or hide threads from the web page after the user is done reading
 
-3) Export or download Reddit threads as a PDF via the UI to the user's desktop computer
+3) Make calls to different endpoints from Reddit's API allowing a user to search for Subreddits
 
-4) Make calls to different endpoints from Reddit's API allowing a user to search for Subreddits
+4) Back button to allow the user to navigate back to the homepage
 
-5) Back button to allow the user to navigate back to the homepage
-
-6) Display the first 10 threads and as the user scrolls down the page, additional results display
+5) Display the first 10 threads and as the user scrolls down the page, additional results display
