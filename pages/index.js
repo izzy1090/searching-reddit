@@ -70,13 +70,12 @@ function Page (  ) {
                 const months = monthConverter(responseDates.getMonth())
                 // format returned date object into an appropriate string
                 const createdDate = `${months}/${responseDates.getDate()}/${responseDates.getFullYear()}`
-
+                
                 return (
-                    // Layout of how HTML tags for returned threads
+                    // Layout of how JSX tags for returned threads
                     <>
-                    <div className="subreddits-container">
+                    <div className="subreddits-container" key={results}> 
                         <div className="thread-sizing">
-
                         <div id='thread-category'>
                             <strong>Subreddit</strong></div>
                             <div><a href={`https://www.reddit.com/${results.subreddit_name_prefixed}`} 

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-pdf/renderer": "^3.0.2",
     "dotenv": "^16.0.3",
     "fs": "^0.0.1-security",
     "next": "13.0.6",
