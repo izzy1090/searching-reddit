@@ -5,7 +5,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Home</title>
+        <title>Reddit Search Engine</title>
         <meta charSet='utf-8'></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       </Head>

@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { DropDown, sortSelection } from './components/dropDownSortFilters';
 import { apiCall } from './api/apiClient';
 import IntroMessage from './components/introMessage';
+import jsPDF from 'jspdf';
 
 function Page (  ) {
     const [isLoading, setLoading] = useState(false)
@@ -20,8 +21,8 @@ function Page (  ) {
         return (
             <>
                 <div className="search-container">
-                
                     <a href='/'><Image src={redditLogo} id="reddit-logo" alt="Png of reddit logo"/></a>
+                    <button onClick={handleDownload}>Download</button>
                     <input placeholder='search reddit...' onChange={(event)=> SearchItems(event.target.value)} 
                     onKeyDown={function(event){
                         if (event.key === 'Enter') {
@@ -41,6 +42,13 @@ function Page (  ) {
     // use the postThreads function to return threads to the returnedThreads prop
     const [returnedThreads, postThreads] = useState('')
     
+    const doc = new jsPDF()
+    function handleDownload() {
+        console.log(userInput)    
+        // doc.text(results, 10, 10)
+        // doc.save('export.pdf')
+    }
+
     // used to invoke a search and generate results
     const HandleSearch = () => {
         // call the API with our userInput as a passed-in arg
