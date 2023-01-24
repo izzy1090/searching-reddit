@@ -1,6 +1,5 @@
 import { useState } from "react"
 
-// this is 
 export let sortSelection = 'relevance';
 
 function DropDown() {
