@@ -8,44 +8,6 @@
 body {
     background-color: rgb(218, 224, 230);
 }
-.search-container {
-    background-color: rgb(255, 255, 255);
-    padding: 5px;
-    flex-grow: 0;
-    flex-shrink: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    position: fixed;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-#reddit-logo {
-    max-width: 35px;
-    height: 35px;
-    padding: 5px;
-    margin: 5px;
-    align-items: center;
-}
-
-#search-bar {
-    color: rgb(53, 52, 52);
-    border: 1px solid rgb(204, 204, 204);
-    border-radius: 1.25em;
-    padding: 7px;
-    height: 20px;
-    width: 250px;
-    overflow: hidden;
-}
-.sort-dropdown {
-    padding: 5px;
-    font-size: small;
-    border-radius: 10px;
-    background-color: rgb(246, 247, 248);
-}
-
 .page-contents {
     margin: 20px;
     margin-top: 50px;
