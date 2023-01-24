@@ -1,7 +1,8 @@
-import { sortSelection } from "../components/dropDownSortFilters";
+import { sortSelection } from "../components/DropdownSortFilters";
 import { filterData } from "../../JS/filterData";
 
-export const apiCall = async function getStaticProps (searchTerm) {  
+// making api calls
+const apiCall = async function getStaticProps (searchTerm) {  
     try {
         console.log('searching...')
         // declared variables to use for OAuth with Reddit's API

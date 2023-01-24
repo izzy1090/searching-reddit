@@ -1,5 +1,7 @@
 import Head from 'next/head'
 import '../styles/globals.css'
+import '../styles/searchItems.css'
+import '../styles/threads.css'
 
 function MyApp({ Component, pageProps }) {
   return (

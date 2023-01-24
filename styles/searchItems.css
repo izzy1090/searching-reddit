@@ -1,0 +1,73 @@
+.search-container {
+    background-color: rgb(255, 255, 255);
+    padding: 5px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#reddit-logo {
+    max-width: 35px;
+    height: 35px;
+    padding: 5px;
+    margin: 5px;
+    align-items: center;
+}
+
+#search-bar {
+    color: rgb(53, 52, 52);
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 1.25em;
+    padding: 8px;
+    height: 20px;
+    width: 250px;
+    overflow: hidden;
+}
+
+.search-button{
+    max-width: 30px;
+    height: 30px;
+    /* padding: 5px; */
+    /* margin: 5px; */
+    align-items: center;
+}
+.search-button:hover{
+    content: url(../public/images/active-magnifying-glass-icon_vecteezy.svg);
+}
+
+.search-button:active{
+    content: url(../public/images/active-magnifying-glass-icon_vecteezy.svg);
+    background-color: rgb(243, 242, 242);
+    border-radius: 8px;
+    transform: translateY(1px);
+}
+
+.sort-dropdown {
+    padding: 5px;
+    margin: 5px;
+    font-size: small;
+    border-radius: 10px;
+    background-color: rgb(246, 247, 248);
+} 
+
+@media screen and (min-width: 0px) and (max-width: 359px) {
+    .sort-dropdown {
+        max-width: 60px;
+    }
+}
+@media screen and (min-width: 360px) and (max-width: 767px) {
+    #search-bar {
+        margin: 5px;
+        
+    }
+    .sort-dropdown {
+        max-width: 100px;
+    }
+}
