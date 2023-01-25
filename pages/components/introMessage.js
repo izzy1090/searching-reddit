@@ -11,7 +11,7 @@ function IntroMessage() {
         <p>If you would like to use this program via Node.js to
         download them locally, please visit the GitHub linked below and follow the directions via the ReadMe to use it with your preferred IDE.</p><br></br>
 
-        <a href='https://github.com/izzy1090/searching-through-sub-reddits' target={'_blank'}>GitHub Repository</a>
+        <a href='https://github.com/izzy1090/searching-reddit' target={'_blank'}>GitHub Repository</a>
         <br></br><br></br>
         
         <p><strong>Planned features include:</strong></p>
