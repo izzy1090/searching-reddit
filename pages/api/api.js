@@ -2,7 +2,7 @@ import { sortSelection } from "../components/DropdownSortFilters";
 import { filterData } from "../../JS/filterData";
 
 // making api calls
-const apiCall = async function getStaticProps (searchTerm) {  
+export const apiCall = async function getStaticProps (searchTerm) {  
     try {
         console.log('searching...')
         // declared variables to use for OAuth with Reddit's API
@@ -27,7 +27,7 @@ const apiCall = async function getStaticProps (searchTerm) {
             // isolate the actual bearer token to return it for the API call below
             .then( bearerToken => bearerToken[0] )
         .then((returnedToken)=> {
-            return fetch(`https://oauth.reddit.com/r/all/search/?q=${searchTerm}&sort=${sortSelection}&limit=${3}`, 
+            return fetch(`https://oauth.reddit.com/r/all/search/?q=${searchTerm}&sort=${sortSelection}&limit=${50}`, 
                 { headers: {
                     // authorize with previously generated bearerToken here
                     Authorization: `bearer ${returnedToken}`}

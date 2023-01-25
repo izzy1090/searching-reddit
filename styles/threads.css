@@ -5,7 +5,22 @@
     padding: 15px 20px;
     margin: 5px;
     display: block;
-}   
+}  
+
+.delete-button {
+    width: 18px;
+    height: auto;
+    margin-left: auto;
+}
+
+.delete-button:hover{
+    content: url(../public/images/black-delete-icon.svg);
+}
+
+.delete-button:active{
+    content: url(../public/images/red-delete-icon.svg);
+    transform: translateY(.5px);
+}
 
 .thread-sizing {
     padding: 5px;

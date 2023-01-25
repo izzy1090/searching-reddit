@@ -19,12 +19,10 @@ function isoChildObj(json) {
 // output: return an object of key/value pairs
 // function accepts a parent object created by isoChildObj and filters it to return our desired key/value pairs
 function filterData (object) {
-    // declare an empty object literal to populate with desired key/value pairs
-    let cache = {}
     // if key names match 'children'
     if (object['children']) 
         // map the desired key/value pairs to a new object 
-        cache = object['children'].map(val=>{
+        return object['children'].map(val=>{
             return {
                 // the subreddit names and their prefix
                 subreddit: val.data.subreddit,
@@ -52,7 +50,6 @@ function filterData (object) {
                 selftext: val.data.selftext
             } 
         }) 
-    return cache
 }
 
 module.exports = {
