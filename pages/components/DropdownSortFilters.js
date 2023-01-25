@@ -1,17 +1,17 @@
 import { useState } from "react"
 
-export let sortSelection = '';
+export let sortSelection = 'relevance';
 
-export function DropDown() {
+function DropDown() {
     // declare state variable and setValue function to set the value of sort for API call
-    const [sortOption, setSort] = useState('') 
+    const [sortOption, setSort] = useState('relevance') 
 
-    function changeSort(value) {
+    function handleSort(value) {
         sortSelection = value
     }
 
     return(
-        <div onClick={changeSort(sortOption)}>
+        <div onClick={handleSort(sortOption)} >
             <select onChange={(e)=>setSort(e.target.value)} className="sort-dropdown">
                 <option value={'relevance'}>relevance</option>
                 <option value={'hot'}>hot</option>
