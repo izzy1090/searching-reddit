@@ -25,6 +25,7 @@ function filterData (object) {
         return object['children'].map(val=>{
             return {
                 // the subreddit names and their prefix
+                thumbnail: val.data.thumbnail,
                 subreddit: val.data.subreddit,
                 subreddit_name_prefixed: val.data.subreddit_name_prefixed,
                 permalink: val.data.permalink,

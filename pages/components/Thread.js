@@ -7,13 +7,13 @@ function Thread ({threadId, deleteThread, subredditName, author, date, threadNam
     }
     return (
         <div className="subreddit-container"> 
-        
             <div className="thread-sizing">
                 <Image src={DeleteButton} 
                     onClick={ handleClick } 
                     className='delete-button' 
                     alt="Image of an 'x' icon for the delete button."
                 />
+                {/* <img src={thumbnails} className='thumbnail'></img> */}
                 <div id='thread-category'>
                     <strong>Subreddit</strong></div>
                     <div><a href={`https://www.reddit.com/${subredditName}`} 

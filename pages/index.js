@@ -32,7 +32,6 @@ function Page () {
         console.log(sortSelection)
         // call the API with our searchTerm as a passed-in arg
         apiCall(searchTerm).then((response)=> {
-            console.log(response)
             setLoading(false);   
             setThreads(response.props.threads)
         })
@@ -42,9 +41,6 @@ function Page () {
         <div className='page-contents'> 
             <SearchBar onSubmit={handleSubmit}/>
             <ThreadCount/>
-            {/* Intro page for when the user first loads the site, 
-            essentially if no threads are returned from the API, display the fragment below.
-            Other wise show the loading animation and return the threads. */}
             { !isLoading && threads.length == 0 ? <IntroMessage/> : null }
             { isLoading ? <div className='loading-animation subreddit-container'>
             <div className='center-animation'><span className="loader-animation"></span></div>
@@ -54,7 +50,6 @@ function Page () {
                     results.selftext = 'N/A'
                 } 
                 results.id = id;
-                results.test = 'hey!';
                 // declared variable to initialize with a date object using responses return unix timecode
                 const responseDates = new Date(results.created * 1000)
                 // because getMonth() returns integers 0 for Jan., 1 for Feb.
@@ -70,8 +65,10 @@ function Page () {
                 const months = monthConverter(responseDates.getMonth())
                 // format returned date object into an appropriate string
                 const createdDate = `${months}/${responseDates.getDate()}/${responseDates.getFullYear()}`;
+                console.log(results)
                 return (
                 <Thread
+                    thumbnails={results.thumbnail}
                     deleteThread={handleDelete}
                     threadId={id}
                     subredditName={results.subreddit_name_prefixed} 
