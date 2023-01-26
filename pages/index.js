@@ -67,19 +67,21 @@ function Page () {
                 const createdDate = `${months}/${responseDates.getDate()}/${responseDates.getFullYear()}`;
                 console.log(results)
                 return (
-                <Thread
-                    thumbnails={results.thumbnail}
-                    deleteThread={handleDelete}
-                    threadId={id}
-                    subredditName={results.subreddit_name_prefixed} 
-                    author={results.author}
-                    date={createdDate}
-                    threadName={results.title}
-                    body={results.selftext}
-                    awards={results.total_awards_received}
-                    subscriberCount={results.subreddit_subscribers}
-                    url={results.permalink}
-                />)
+                <div key={id}>
+                    <Thread
+                        thumbnails={results.thumbnail}
+                        deleteThread={handleDelete}
+                        threadId={id}
+                        subredditName={results.subreddit_name_prefixed} 
+                        author={results.author}
+                        date={createdDate}
+                        threadName={results.title}
+                        body={results.selftext}
+                        awards={results.total_awards_received}
+                        subscriberCount={results.subreddit_subscribers}
+                        url={results.permalink}
+                    />
+                </div> )
                 })  
             }
         </div> 
