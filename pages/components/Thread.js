@@ -1,5 +1,5 @@
 import Image from "next/image";
-import DeleteButton from '../../public/images/black-delete-icon.svg'
+import DeleteButton from '../../public/images/grey-delete-icon.svg'
 
 function Thread ({threadId, deleteThread, subredditName, author, date, threadName, body, awards, subscriberCount, url }){
     function handleClick(){
