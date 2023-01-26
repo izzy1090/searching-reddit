@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import '../styles/globals.css'
-import '../styles/searchItems.css'
+import '../styles/searchBar.css'
 import '../styles/threads.css'
+import '../styles/threadCount.css'
 
 function MyApp({ Component, pageProps }) {
   return (

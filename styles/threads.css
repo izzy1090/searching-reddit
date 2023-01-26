@@ -17,10 +17,10 @@
     content: url(../public/images/black-delete-icon.svg);
 }
 
-.delete-button:active{
+/* .delete-button:active{
     content: url(../public/images/red-delete-icon.svg);
     transform: translateY(.5px);
-}
+} */
 
 .thread-sizing {
     padding: 5px;
@@ -43,7 +43,7 @@
         border-right: 0px;
         padding: 3px;
         margin: 0px;
-        margin-bottom: 1px;
+        margin-bottom: 2px;
         margin-top: 1px;
     }
 }
@@ -55,7 +55,7 @@
         border-right: 0px;
         padding: 7px;
         margin: 0px;
-        margin-bottom: 1px;
+        margin-bottom: 2px;
         margin-top: 1px;
     }
 }

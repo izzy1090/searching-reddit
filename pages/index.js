@@ -4,6 +4,7 @@ import Thread from './components/Thread';
 import { sortSelection } from './components/DropdownSortFilters';
 import { apiCall } from './api/api';
 import { useState } from 'react';
+import ThreadCount from './components/ThreadCount';
 
 // potential function for PDF feature
 // const doc = new jsPDF()
@@ -14,7 +15,7 @@ import { useState } from 'react';
 // }
 
 function Page () {
-    // loading state to display animation in betwee searches
+    // loading state to display animation in between searches
     const [ isLoading, setLoading ] = useState(false);
     // state used to return threads from our api call
     const [ threads, setThreads ] = useState([]);
@@ -39,12 +40,13 @@ function Page () {
     
     return ( 
         <div className='page-contents'> 
-            <SearchBar onSubmit={ handleSubmit }/>
+            <SearchBar onSubmit={handleSubmit}/>
+            <ThreadCount/>
             {/* Intro page for when the user first loads the site, 
             essentially if no threads are returned from the API, display the fragment below.
             Other wise show the loading animation and return the threads. */}
             { !isLoading && threads.length == 0 ? <IntroMessage/> : null }
-            { isLoading ? <div className='loading-animation'>
+            { isLoading ? <div className='loading-animation subreddit-container'>
             <div className='center-animation'><span className="loader-animation"></span></div>
             </div> :  
             threads.map((results, id)=>{
@@ -70,7 +72,7 @@ function Page () {
                 const createdDate = `${months}/${responseDates.getDate()}/${responseDates.getFullYear()}`;
                 return (
                 <Thread
-                    deleteThread={ handleDelete }
+                    deleteThread={handleDelete}
                     threadId={id}
                     subredditName={results.subreddit_name_prefixed} 
                     author={results.author}

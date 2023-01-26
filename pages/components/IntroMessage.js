@@ -9,7 +9,8 @@ function IntroMessage() {
             CSS, React/JSX and Next.js as a framework.</p><br></br>
 
         <p>If you would like to use this program via Node.js to
-        download them locally, please visit the GitHub linked below and follow the directions via the ReadMe to use it with your preferred IDE.</p><br></br>
+        download them locally, please visit the GitHub linked below and follow 
+        the directions via the ReadMe to use it with your preferred IDE.</p><br></br>
 
         <a href='https://github.com/izzy1090/searching-reddit' target={'_blank'}>GitHub Repository</a>
         <br></br><br></br>
@@ -17,11 +18,10 @@ function IntroMessage() {
         <p><strong>Planned features include:</strong></p>
         <ul className='thread-sizing'>
             <li>1) Export or download Reddit threads as a PDF via the UI to the user's desktop computer</li><br></br>
-            <li>2) Add a thread limit to the search request so users can customize how many searches they want to return</li><br></br>
-            <li>3) Add a date range filter so user's can filter through returned results using a date range</li><br></br>
-            <li>4) Make calls to different endpoints from Reddit's API allowing a user to search for Subreddits</li><br></br>
-            <li>5) Back button to allow the user to navigate back to the homepage</li><br></br>
-            <li>6) Display the first 10 threads and as the user scrolls down the page, additional results display</li><br></br>
+            <li>2) Add a date range filter so user's can filter through returned results using a date range</li><br></br>
+            <li>3) Make calls to different endpoints from Reddit's API allowing a user to search for Subreddits</li><br></br>
+            <li>4) Back button to allow the user to navigate back to the homepage</li><br></br>
+            <li>5) Display the first 10 threads and as the user scrolls down the page, additional results display</li><br></br>
         </ul>
     </div>
     )

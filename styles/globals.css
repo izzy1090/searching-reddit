@@ -12,10 +12,10 @@ body {
 
 .page-contents {
     margin: 20px;
-    margin-top: 50px;
+    margin-top: 30px;
     padding: 50px;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 700px;
+    padding-right: 700px;
     padding-bottom: 10px;
     display: block;
 }

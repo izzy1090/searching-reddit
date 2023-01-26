@@ -6,7 +6,7 @@ Currently you can use the search bar above to enter keyword(s) to generate threa
 
 The website uses JavaScript, CSS, React/JSX and Next.js as a framework.
 
-If you would like to use the search engine, please visit the below URL, enter keyword(s) into the search bar at the top and press 'enter' / 'return' or press the magnifying glass on the right (i.e. the search button):
+If you would like to use the search engine, please visit the below URL, enter keyword(s) into the search bar at the top and press 'enter' / 'return' or the magnifying glass on the right (i.e. the search button):
 
 https://searchingreddit.vercel.app/
 
@@ -41,12 +41,10 @@ Planned features include:
 
 1) Export or download Reddit threads as a PDF via the UI to the user's desktop computer
 
-2) Add a thread limit to the search request so users can customize how many searches they want to return
+2) Add a date range filter so user's can filter through returned results using a date range
 
-3) Add a date range filter so user's can filter through returned results using a date range
+3) Make calls to different endpoints from Reddit's API allowing a user to search for Subreddits
 
-4) Make calls to different endpoints from Reddit's API allowing a user to search for Subreddits
+4) Back button to allow the user to navigate back to the homepage
 
-5) Back button to allow the user to navigate back to the homepage
-
-6) Display the first 10 threads and as the user scrolls down the page, additional results display
+5) Display the first 10 threads and as the user scrolls down the page, additional results display
