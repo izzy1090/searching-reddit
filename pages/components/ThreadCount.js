@@ -13,8 +13,9 @@ function ThreadCount( ) {
             className="thread-count" 
             type='number' 
             min={1}
-            placeholder={startingCount}
-            onChange={ handleChange }>
+            placeholder={threadCount}
+            onChange={ handleChange }
+            >
         </input>
         </div>
         </>
