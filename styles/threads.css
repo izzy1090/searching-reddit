@@ -19,6 +19,7 @@
     width: 10px;
     height: auto;
     margin-left: auto;
+    cursor: pointer;
 }
 
 /* .delete-button:hover{
