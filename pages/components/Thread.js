@@ -13,7 +13,6 @@ function Thread ({threadId, deleteThread, subredditName, author, date, threadNam
                     className='delete-button' 
                     alt="Image of an 'x' icon for the delete button."
                 />
-                {/* <img src={thumbnails} className='thumbnail'></img> */}
                 <div id='thread-category'>
                     <strong>Subreddit</strong></div>
                     <div><a href={`https://www.reddit.com/${subredditName}`} 
@@ -39,8 +38,7 @@ function Thread ({threadId, deleteThread, subredditName, author, date, threadNam
                 <div className='thread-sizing'><div id='thread-category'>
                     <strong>Subreddit Subscriber Count</strong></div>{subscriberCount}
                 </div>
-                <div className="thread-sizing"><div id='thread-category'>
-                    <strong>URL</strong></div>
+                <div className="thread-sizing">
                     <div><a href={`https://www.reddit.com${url}`} 
                         target='_blank'>{url}</a></div>
                 </div>

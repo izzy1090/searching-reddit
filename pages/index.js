@@ -6,14 +6,6 @@ import { apiCall } from './api/api';
 import { useState } from 'react';
 import ThreadCount from './components/ThreadCount';
 
-// potential function for PDF feature
-// const doc = new jsPDF()
-// function handleDownload() {
-//     console.log(userInput)    
-//     // doc.text(results, 10, 10)
-//     // doc.save('export.pdf')
-// }
-
 function Page () {
     // loading state to display animation in between searches
     const [ isLoading, setLoading ] = useState(false);
@@ -55,6 +47,9 @@ function Page () {
                 // because getMonth() returns integers 0 for Jan., 1 for Feb.
                     // I had to increment values below 10 and add a '0' afterwards
                 function monthConverter(month) {
+                    if (month === false){
+                        return <div>No date available</div>
+                    }
                     if(month >= 0 && month <= 9){
                         let monthToIncrement = month;
                         monthToIncrement++;
