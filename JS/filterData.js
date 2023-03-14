@@ -19,13 +19,13 @@ function isoChildObj(json) {
 // output: return an object of key/value pairs
 // function accepts a parent object created by isoChildObj and filters it to return our desired key/value pairs
 function filterData (object) {
+    console.log('filtered date: ', object)
     // if key names match 'children'
     if (object['children']) 
         // map the desired key/value pairs to a new object 
-        return object['children'].map(val=>{
+        return object['children'].map((val)=>{
             return {
                 // the subreddit names and their prefix
-                thumbnail: val.data.thumbnail,
                 subreddit: val.data.subreddit,
                 subreddit_name_prefixed: val.data.subreddit_name_prefixed,
                 permalink: val.data.permalink,
@@ -48,7 +48,9 @@ function filterData (object) {
                 // number of reactions awarded to the thread
                 total_awards_received: val.data.total_awards_received,
                 // text from the posted thread
-                selftext: val.data.selftext
+                selftext: val.data.selftext,
+                linkFlairText: val.data.link_flair_text,
+                linkFlairBgColor: val.data.link_flair_background_color
             } 
         }) 
 }

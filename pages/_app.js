@@ -1,8 +1,6 @@
-import Head from 'next/head'
-import '../styles/globals.css'
-import '../styles/searchBar.css'
-import '../styles/threads.css'
-import '../styles/threadCount.css'
+import Head from 'next/head';
+import '../styles/globals.css';
+
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -12,8 +10,8 @@ function MyApp({ Component, pageProps }) {
         <meta charSet='utf-8'></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       </Head>
-      <div>
-      <Component {...pageProps} />
+      <div className='bg-slate-50 min-h-screen min-w-screen'>
+        <Component {...pageProps} />
       </div>
     </>
   )
