@@ -16,7 +16,6 @@ function PostContent( {data, id, media, nsfw} ){
                 <div className="flex items-center justify-center mt-2 overflow-auto">
                     <img src={media} alt='Embedded images from Reddit post.' 
                         style={{filter: 'blur(55px)'}}
-                        
                         />
                 </div>
             </>

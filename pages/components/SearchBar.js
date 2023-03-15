@@ -18,12 +18,15 @@ function SearchBar ( { onSubmit } ) {
         setSearch(event.target.value)
     }
     return (
-        <div className='search-container'>
+        <div className='search-container z-10'>
             <a href='/'> <Image src={redditLogo} 
                 id="reddit-logo" 
                 alt="Png of reddit logo"/></a>
             <form type='hidden' className='search-bar-form' onSubmit={handleSubmit}>
-                <input className='search-bar-input text-sm' placeholder='search reddit..' onChange={handleChange}></input>
+                <input className='search-bar-input text-sm' 
+                    placeholder='search reddit..' 
+                    onChange={handleChange}>
+                </input>
             </form>
             <Image src={searchButton} 
                     className='search-button' 
