@@ -4,7 +4,7 @@ function ThreadCount( ) {
     function handleChange (number) {
         threadCount = number.target.value
     }
-    const startingCount = 10;
+
     const fieldMessage = "Enter thread count: "
     return(
         <>

@@ -19,7 +19,7 @@ function ExpandContent( {data, id} ){
         // if isExpanded has a value
         if (isExpanded){
             // we want to initialize any posts with the true isExpanded variable to display
-            return (content = <div className="pt-1 pb-1">
+            return (content = <div className="p-1">
                 <div className="overflow-auto whitespace-pre-wrap ">
                     {data}   
                 </div>
@@ -28,18 +28,18 @@ function ExpandContent( {data, id} ){
                     Hide
                 </button>
             </div>)
-        } else return content = <div className="pt-1 pb-1">
-            <div className="truncate overflow-hidden h-20 whitespace-pre-wrap">
+        } else return content = <div className="p-1">
+            <div className="truncate overflow-auto max-h-40 whitespace-pre-wrap">
                 {data}   
             </div>
             <button onClick={()=>handleExpand(id)} 
-                className="mt-2 text-slate-500 text-xs font-semibold hover:underline">
+                className="mt-2 pt-1 text-slate-500 text-xs font-semibold hover:underline">
                 See more...
             </button>
         </div>
     // otherwise render post normally
-    } else content = <div className="pt-1 pb-1">
-        <div className="whitespace-pre-wrap">
+    } else content = <div className="p-1">
+        <div className="overflow-auto whitespace-pre-wrap">
             {data}   
         </div>
     </div>

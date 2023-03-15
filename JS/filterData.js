@@ -50,7 +50,8 @@ function filterData (object) {
                 // text from the posted thread
                 selftext: val.data.selftext,
                 linkFlairText: val.data.link_flair_text,
-                linkFlairBgColor: val.data.link_flair_background_color
+                linkFlairBgColor: val.data.link_flair_background_color,
+                linkFlairTextColor: val.data.link_flair_text_color
             } 
         }) 
 }

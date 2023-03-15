@@ -14,19 +14,22 @@
 }
 
 #reddit-logo {
-    max-width: 35px;
-    height: 35px;
+    max-width: 40px;
+    height: 40px;
     padding: 5px;
     margin: 5px;
     align-items: center;
 }
 
 .search-bar-form {
+    display: flex;
+    align-items: center;
     color: rgb(53, 52, 52);
     border: 1px solid rgb(204, 204, 204);
     border-radius: 1.25em;
     padding: 8px;
     overflow: hidden;
+    height: 35px;
 }
 
 .search-bar-input {
@@ -36,8 +39,8 @@
 }
 
 .search-button{
-    max-width: 30px;
-    height: 30px;
+    max-width: 35px;
+    height: 35px;
     padding: 5px;
     margin: 3px;
     align-items: center;

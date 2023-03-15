@@ -1,27 +1,42 @@
 function IntroMessage() {
     return (
-    <div className="subreddit-container">
-        <p><strong>Note From Developer:</strong></p><br></br>
-        <p>Hello and welcome to my Reddit search engine!</p><br></br>
-        <p>Currently you can use the search bar above to enter keyword(s) to generate threads returned from Reddit's API.</p><br></br>
-        <p>The purpose of this project was to utilize Reddit's API to generate results 
+    <div className="subreddit-container text-sm">
+        <p className="font-semibold p-1">
+            Note From Developer:
+        </p>
+        <p className="p-1">
+            Hello and welcome to my Reddit search engine!
+        </p>
+        <p className="p-1">
+            Currently you can use the search bar above to enter keyword(s) to generate threads returned from Reddit's API.
+        </p>
+        <p className="p-1">
+            The purpose of this project was to utilize Reddit's API to generate results 
             and dynamically render posts for the user. The website uses JavaScript, 
-            CSS, React/JSX and Next.js as a framework.</p><br></br>
-
-        <p>If you would like to use this program via Node.js to
-        download them locally, please visit the GitHub linked below and follow 
-        the directions via the ReadMe to use it with your preferred IDE.</p><br></br>
-
-        <a href='https://github.com/izzy1090/searching-reddit' target={'_blank'}>GitHub Repository</a>
-        <br></br><br></br>
+            CSS, React/JSX and Next.js as a framework.
+        </p>
+        <p className="p-1">
+            If you would like to use this program via Node.js to
+            download them locally, please visit the GitHub linked below and follow 
+            the directions via the ReadMe to use it with your preferred IDE.
+        </p>
+        <div className="text-blue-500 p-1">
+            <a target='_blank'
+                rel="noreferrer"
+                href='https://github.com/izzy1090/searching-reddit'>
+                GitHub Repository
+            </a>
+        </div>
         
-        <p><strong>Planned features include:</strong></p>
+        <p className="font-semibold p-1">
+            Planned features include:
+        </p>
         <ul className='thread-sizing'>
-            <li>1) Export or download Reddit threads as a PDF via the UI to the user's desktop computer</li><br></br>
-            <li>2) Add a date range filter so user's can filter through returned results using a date range</li><br></br>
-            <li>3) Make calls to different endpoints from Reddit's API allowing a user to search for Subreddits</li><br></br>
-            <li>4) Back button to allow the user to navigate back to the homepage</li><br></br>
-            <li>5) Display the first 10 threads and as the user scrolls down the page, additional results display</li><br></br>
+            <li>1) Export or download Reddit threads as a PDF via the UI to the user's desktop computer</li>
+            <li>2) Add a date range filter so user's can filter through returned results using a date range</li>
+            <li>3) Make calls to different endpoints from Reddit's API allowing a user to search for Subreddits</li>
+            <li>4) Back button to allow the user to navigate back to the homepage</li>
+            <li>5) Display the first 10 threads and as the user scrolls down the page, additional results display</li>
         </ul>
     </div>
     )

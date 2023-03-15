@@ -4,7 +4,7 @@ import { sortSelection } from './components/DropdownSortFilters';
 import { apiCall } from './api/api';
 import { useState } from 'react';
 import ThreadCount from './components/ThreadCount';
-import ThreadPage from './next.js-pages/ThreadPage';
+import ThreadListPage from './next.js-pages/ThreadListPage';
 
 function Page () {
     // loading state to display animation in between searches
@@ -30,13 +30,13 @@ function Page () {
     }
     
     return ( 
-        <div className='bg-slate-50 min-h-screen min-w-screen'>
+        <div className='page-contents'>
             <SearchBar onSubmit={handleSubmit}/>
             <ThreadCount/>
             { !isLoading && threads.length == 0 ? <IntroMessage/> : null }
             { isLoading ? <div className='loading-animation subreddit-container'>
             <div className='center-animation'><span className="loader-animation"></span></div>
-            </div> : <ThreadPage threads={threads} handleDelete={handleDelete}/>}
+            </div> : <ThreadListPage threads={threads} handleDelete={handleDelete}/>}
         </div> 
     )
 }

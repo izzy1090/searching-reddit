@@ -1,6 +1,8 @@
 import Image from "next/image";
 import DeleteButton from '../../public/images/grey-delete-icon.svg'
 import DateConverter from "./DateConverter";
+import ExpandContent from './ExpandContent';
+import Panel from "./Panel";
 
 function ThreadList (
     {   threadId, 
@@ -10,11 +12,8 @@ function ThreadList (
         date,
         threadName, 
         body, 
-        awards, 
         subscriberCount, 
-        url,
-        linkFlairText,
-        linkFlairBgColor
+        url
      }){
 
     function handleDeleteClick(){
@@ -22,8 +21,8 @@ function ThreadList (
     }
 
     return (
-        <div className="text-sm">
-            <div className="flex flex-row items-center mb-2 text-xs">
+        <Panel className="subreddit-container">
+            <div className="flex flex-row p-1 items-center mb-1 text-xs">
                 <a target='_blank' rel="noreferrer"
                     href={`https://www.reddit.com/${subredditName}`}
                     className="font-semibold hover:underline">
@@ -33,7 +32,7 @@ function ThreadList (
                     <a target='_blank' rel="noreferrer" 
                         href={`https://www.reddit.com/user/${author}/`}>
                         · post by 
-                        <span className="hover:underline">
+                        <span className="ml-1 hover:underline">
                             u/{author}
                         </span>
                     </a>
@@ -43,36 +42,21 @@ function ThreadList (
                 </div>
                 <Image src={DeleteButton} 
                     alt="Image of an 'x' icon for the delete button."
-                    className="w-[13px] h-auto ml-auto cursor-pointer"
+                    className="w-[10px] h-auto ml-auto cursor-pointer m-2"
                     onClick={ handleDeleteClick }/>
             </div>
-            <div className="mb-1 text-base font-semibold">
+            <div className="mb-1 text-base pl-1 pr-1 font-semibold">
                 <a target="_blank" rel="noreferrer"
                     href={`https://www.reddit.com${url}`}
                     className="hover:underline">
                     {threadName}
                 </a>
             </div>
-            <div className="text-sm mb-2">
-                {linkFlairText && <div className="mb-2" style={{
-                    borderRadius: '2rem',
-                    paddingLeft: '5px',
-                    paddingRight: '5px',
-                    display:'inline-block', 
-                    backgroundColor: linkFlairBgColor || 'orange'}}>
-                {linkFlairText} </div>}
+            <ExpandContent data={body} id={threadId}/>    
+            <div className='text-xs pl-1 pr-1'>
+                {subscriberCount} subs
             </div>
-            
-            <div>
-                {body}
-            </div>
-            <div className="thread-sizing"><div id='thread-category'>
-                <strong>Awards Received</strong></div>{awards}
-            </div>
-            <div className='thread-sizing'><div id='thread-category'>
-                <strong>Subreddit Subscriber Count</strong></div>{subscriberCount}
-            </div>
-        </div>
+        </Panel>
     ) 
 }
 
