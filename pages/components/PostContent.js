@@ -1,14 +1,24 @@
 import { useState } from "react";
 
-function PostContent( {data, id, media} ){
+function PostContent( {data, id, media, nsfw} ){
     const [ expanded, setIsExpanded ] = useState({});
     if (data || media){
+        
         let content;
         let renderedMedia;
-        const checkMediaFormat = media && (media.includes('jpg') || 
-            media.includes('png'))
+        const checkMediaFormat = media.includes('jpg') || media.includes('png');
         if (checkMediaFormat){
-            renderedMedia = <>
+            if (checkMediaFormat && nsfw){
+                renderedMedia = <>
+                <div className="flex items-center justify-center mt-2 blur-2xl">
+                    <a target="_blank" rel="noreferrer"
+                        href={media}>
+                        <img src={media} alt='Embedded images from Reddit post.'/>
+                    </a>
+                </div>
+            </>
+                
+            } else renderedMedia = <>
                 <div className="flex items-center justify-center mt-2">
                     <a target="_blank" rel="noreferrer"
                         href={media}>

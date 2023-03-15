@@ -47,6 +47,7 @@ function filterData (object) {
                 total_awards_received: val.data.total_awards_received,
                 // text from the posted thread
                 selftext: val.data.selftext,
+                nsfw: val.data.over_18
             } 
         }) 
 }

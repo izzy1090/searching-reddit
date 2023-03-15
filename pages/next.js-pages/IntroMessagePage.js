@@ -33,11 +33,12 @@ function IntroMessagePage() {
             Planned features include:
         </p>
         <ul className='thread-sizing'>
-            <li className="mb-1">1) Export or download Reddit threads as a PDF via the UI to the user's desktop computer</li>
-            <li className="mb-1">2) Add a date range filter so user's can filter through returned results using a date range</li>
-            <li className="mb-1">3) Make calls to different endpoints from Reddit's API allowing a user to search for Subreddits</li>
-            <li className="mb-1">4) Back button to allow the user to navigate back to the homepage</li>
-            <li className="mb-1">5) Display the first 10 threads and as the user scrolls down the page, additional results display</li>
+            <li className="mb-1">1) Currently NSFW content is blurred. Need to decide how I want to handle the content. Need to determine if the user can reveal the content, if it should remain blurred, but a link to view is provided, or if it shouldn't be included at all.</li>
+            <li className="mb-1">2) Display the first 10 threads and as the user scrolls down the page, additional results display</li>
+            <li className="mb-1">3) Export or download Reddit threads as a PDF via the UI to the user's desktop computer</li>
+            <li className="mb-1">4) Add a date range filter so user's can filter through returned results using a date range</li>
+            <li className="mb-1">5) Make calls to different endpoints from Reddit's API allowing a user to search for Subreddits</li>
+            <li className="mb-1">6) Back button to allow the user to navigate back to the homepage</li>
         </ul>
     </div>
     )

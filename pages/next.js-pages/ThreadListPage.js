@@ -21,6 +21,7 @@ function ThreadListPage ({ threads, handleDelete }){
                     subscriberCount={results.subreddit_subscribers}
                     url={results.permalink}
                     media={results.media}
+                    nsfw={results.nsfw}
                     />
             )})  
         }

@@ -14,7 +14,8 @@ function ThreadList (
         body, 
         subscriberCount, 
         url, 
-        media
+        media,
+        nsfw
      }){
 
     function handleDeleteClick(){
@@ -23,7 +24,6 @@ function ThreadList (
 
     return (
         <Panel key={threadId} className="subreddit-container">
-            
             <div className="flex flex-row p-1 items-center text-xs">
                 <a target='_blank' rel="noreferrer"
                     href={`https://www.reddit.com/${subredditName}`}
@@ -59,7 +59,7 @@ function ThreadList (
                     {threadName}
                 </a>
             </div>
-            <PostContent data={body} id={threadId} media={media}/>
+            <PostContent data={body} id={threadId} media={media} nsfw={nsfw}/>
             
         </Panel>
     ) 

@@ -7,7 +7,7 @@ function DropdownSort() {
     const [sortOption, setSort] = useState('relevance') 
 
     function handleSort(value) {
-        sortSelection = value
+        sortSelection = value;
     }
 
     return(
