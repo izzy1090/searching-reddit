@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import redditLogo from '../../public/images/reddit_logo.png'
 import searchButton from '../../public/images/not-active-magnifying-glass-icon_vecteezy.svg'
-import DropDown from './DropdownSortFilters';
+import DropdownSort from './DropdownSort';
 import { useState } from 'react';
 
 function SearchBar ( { onSubmit } ) {
@@ -29,7 +29,7 @@ function SearchBar ( { onSubmit } ) {
                     className='search-button' 
                     alt='Svg of magnifying glass, image pulled from "Vecteezy.com"'
                     onClick={handleSubmit}/>
-            <DropDown/>
+            <DropdownSort/>
         </div>
     )
 }

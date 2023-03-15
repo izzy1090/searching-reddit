@@ -1,4 +1,4 @@
-function IntroMessage() {
+function IntroMessagePage() {
     return (
     <div className="subreddit-container text-sm">
         <p className="font-semibold p-1">
@@ -8,7 +8,8 @@ function IntroMessage() {
             Hello and welcome to my Reddit search engine!
         </p>
         <p className="p-1">
-            Currently you can use the search bar above to enter keyword(s) to generate threads returned from Reddit's API.
+            Use the search bar above to enter keyword(s) to search for relevant threads from Reddit. 
+            You can also use the sort dropdown menu on the right to filter your results accordingly.
         </p>
         <p className="p-1">
             The purpose of this project was to utilize Reddit's API to generate results 
@@ -24,7 +25,7 @@ function IntroMessage() {
             <a target='_blank'
                 rel="noreferrer"
                 href='https://github.com/izzy1090/searching-reddit'>
-                GitHub Repository
+                <span className="hover:underline">GitHub Repository</span>
             </a>
         </div>
         
@@ -32,14 +33,14 @@ function IntroMessage() {
             Planned features include:
         </p>
         <ul className='thread-sizing'>
-            <li>1) Export or download Reddit threads as a PDF via the UI to the user's desktop computer</li>
-            <li>2) Add a date range filter so user's can filter through returned results using a date range</li>
-            <li>3) Make calls to different endpoints from Reddit's API allowing a user to search for Subreddits</li>
-            <li>4) Back button to allow the user to navigate back to the homepage</li>
-            <li>5) Display the first 10 threads and as the user scrolls down the page, additional results display</li>
+            <li className="mb-1">1) Export or download Reddit threads as a PDF via the UI to the user's desktop computer</li>
+            <li className="mb-1">2) Add a date range filter so user's can filter through returned results using a date range</li>
+            <li className="mb-1">3) Make calls to different endpoints from Reddit's API allowing a user to search for Subreddits</li>
+            <li className="mb-1">4) Back button to allow the user to navigate back to the homepage</li>
+            <li className="mb-1">5) Display the first 10 threads and as the user scrolls down the page, additional results display</li>
         </ul>
     </div>
     )
 }
 
-export default IntroMessage
+export default IntroMessagePage;

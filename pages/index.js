@@ -1,6 +1,5 @@
-import IntroMessage from './components/IntroMessage';
+import IntroMessagePage from './next.js-pages/IntroMessagePage';
 import SearchBar from './components/SearchBar';
-import { sortSelection } from './components/DropdownSortFilters';
 import { apiCall } from './api/api';
 import { useState } from 'react';
 import ThreadCount from './components/ThreadCount';
@@ -32,7 +31,7 @@ function Page () {
         <div className='page-contents'>
             <SearchBar onSubmit={handleSubmit}/>
             <ThreadCount/>
-            { !isLoading && threads.length == 0 ? <IntroMessage/> : null }
+            { !isLoading && threads.length == 0 ? <IntroMessagePage/> : null }
             { isLoading ? <div className='loading-animation subreddit-container'>
             <div className='center-animation'><span className="loader-animation"></span></div>
             </div> : <ThreadListPage threads={threads} handleDelete={handleDelete}/>}
