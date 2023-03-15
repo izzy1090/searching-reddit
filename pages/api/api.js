@@ -1,4 +1,4 @@
-import { sortSelection } from "../components/DropdownSortFilters";
+import { sortSelection } from "../components/DropdownSort";
 import { filterData } from "../../JS/filterData";
 import { threadCount } from "../components/ThreadCount";
 

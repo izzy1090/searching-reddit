@@ -1,6 +1,5 @@
 .search-container {
     background-color: rgb(255, 255, 255);
-    padding: 5px;
     flex-grow: 0;
     flex-shrink: 0;
     top: 0;
@@ -14,19 +13,22 @@
 }
 
 #reddit-logo {
-    max-width: 35px;
-    height: 35px;
+    max-width: 40px;
+    height: 40px;
     padding: 5px;
     margin: 5px;
     align-items: center;
 }
 
 .search-bar-form {
+    display: flex;
+    align-items: center;
     color: rgb(53, 52, 52);
     border: 1px solid rgb(204, 204, 204);
     border-radius: 1.25em;
     padding: 8px;
     overflow: hidden;
+    height: 35px;
 }
 
 .search-bar-input {
@@ -36,8 +38,8 @@
 }
 
 .search-button{
-    max-width: 30px;
-    height: 30px;
+    max-width: 35px;
+    height: 35px;
     padding: 5px;
     margin: 3px;
     align-items: center;
@@ -63,17 +65,11 @@
 } 
 
 @media screen and (min-width: 0px) and (max-width: 359px) {
-    .search-bar {
-        width: 10px;
-    }
     .sort-dropdown {
         max-width: 60px;
     }
 }
 @media screen and (min-width: 360px) and (max-width: 767px) {
-    #search-bar {
-        margin: 5px;
-    }
     .sort-dropdown {
         max-width: 100px;
     }

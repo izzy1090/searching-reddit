@@ -2,7 +2,7 @@ import { useState } from "react"
 
 export let sortSelection = 'relevance';
 
-function DropDown() {
+function DropdownSort() {
     // declare state variable and setValue function to set the value of sort for API call
     const [sortOption, setSort] = useState('relevance') 
 
@@ -23,4 +23,4 @@ function DropDown() {
     )
 }
 
-export default DropDown
+export default DropdownSort;

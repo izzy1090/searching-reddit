@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import redditLogo from '../../public/images/reddit_logo.png'
 import searchButton from '../../public/images/not-active-magnifying-glass-icon_vecteezy.svg'
-import DropDown from './DropdownSortFilters';
+import DropdownSort from './DropdownSort';
 import { useState } from 'react';
 
 function SearchBar ( { onSubmit } ) {
@@ -23,13 +23,13 @@ function SearchBar ( { onSubmit } ) {
                 id="reddit-logo" 
                 alt="Png of reddit logo"/></a>
             <form type='hidden' className='search-bar-form' onSubmit={handleSubmit}>
-                <input className='search-bar-input' placeholder='search reddit..' onChange={handleChange}></input>
+                <input className='search-bar-input text-sm' placeholder='search reddit..' onChange={handleChange}></input>
             </form>
             <Image src={searchButton} 
                     className='search-button' 
                     alt='Svg of magnifying glass, image pulled from "Vecteezy.com"'
                     onClick={handleSubmit}/>
-            <DropDown/>
+            <DropdownSort/>
         </div>
     )
 }

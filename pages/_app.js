@@ -1,8 +1,9 @@
-import Head from 'next/head'
-import '../styles/globals.css'
-import '../styles/searchBar.css'
-import '../styles/threads.css'
-import '../styles/threadCount.css'
+import Head from 'next/head';
+import '../styles/globals.css';
+import '../styles/searchBar.css';
+import '../styles/threads.css';
+import '../styles/threadCount.css';
+
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -13,7 +14,7 @@ function MyApp({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       </Head>
       <div>
-      <Component {...pageProps} />
+        <Component {...pageProps}/>
       </div>
     </>
   )

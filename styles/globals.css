@@ -1,9 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
     margin: 0;
     padding: 0;
     border: 0;
-    vertical-align: baseline;
-    font-family: verdana, Arial, Helvetica, sans-serif;
 }
 
 body {
