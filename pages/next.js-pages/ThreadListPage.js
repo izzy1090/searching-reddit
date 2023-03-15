@@ -18,7 +18,9 @@ function ThreadListPage ({ threads, handleDelete }){
                     date={results.created}
                     threadName={results.title}
                     body={cleanText}
+                    ups={results.ups}
                     subscriberCount={results.subreddit_subscribers}
+                    totalAwardsReceived={results.totalAwardsReceived}
                     url={results.permalink}
                     media={results.media}
                     nsfw={results.nsfw}

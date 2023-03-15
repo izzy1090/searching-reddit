@@ -12,6 +12,8 @@ function ThreadList (
         date,
         threadName, 
         body, 
+        ups,
+        totalAwardsReceived,
         subscriberCount, 
         url, 
         media,
@@ -48,9 +50,21 @@ function ThreadList (
                     className="w-[10px] ml-auto cursor-pointer"
                     onClick={ handleDeleteClick }/>
             </div>
-            <div className='text-xs p-1'>
-                {subscriberCount} 
-                <span className="ml-1 font-semibold">subs</span>
+            
+            <div className="flex flex-row items-center text-xs p-1">
+            <div>
+                {ups} <span className="font-semibold">ups</span> ·
+            </div>
+                <div className='p-1'>
+                    {subscriberCount} 
+                    <span className="ml-1 font-semibold">
+                        subs
+                    </span>
+                </div>
+                · {totalAwardsReceived} 
+                <span className="ml-1 font-semibold"> 
+                    awards
+                </span>
             </div>
             <div className="mb-1 text-base pl-1 pr-1 font-semibold">
                 <a target="_blank" rel="noreferrer"

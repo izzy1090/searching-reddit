@@ -33,13 +33,13 @@ function IntroMessagePage() {
             Planned features include:
         </p>
         <ul className='thread-sizing'>
-            <li className="mb-1">1) Need to add icons and counts for total awards and subscribers </li>
-            <li className="mb-1">2) Need to convert subscriber numbers into a better number format (i.e. 1,500 subs = 1.5k subs) </li>
-            <li className="mb-1">3) Display the first 10 threads and as the user scrolls down the page, additional results display</li>
-            <li className="mb-1">4) Export or download Reddit threads as a PDF via the UI to the user's desktop computer</li>
-            <li className="mb-1">5) Add a date range filter so user's can filter through returned results using a date range</li>
-            <li className="mb-1">6) Make calls to different endpoints from Reddit's API allowing a user to search for Subreddits</li>
-            <li className="mb-1">7) Back button to allow the user to navigate back to the homepage</li>
+            <li className="flex flex-row mb-1"><span className="block pr-1">1)</span>Need to add icons and counts for total awards, subscribers and upvotes </li>
+            <li className="flex flex-row mb-1"><span className="block pr-1">2)</span>Need to convert subscriber numbers into a better number format (i.e. 1,500 subs = 1.5k subs) </li>
+            <li className="flex flex-row mb-1"><span className="block pr-1">3)</span>Display the first 10 threads and as the user scrolls down the page, additional results display</li>
+            <li className="flex flex-row mb-1"><span className="block pr-1">4)</span>Export or download Reddit threads as a PDF via the UI to the user's desktop computer</li>
+            <li className="flex flex-row mb-1"><span className="block pr-1">5)</span>Add a date range filter so user's can filter through returned results using a date range</li>
+            <li className="flex flex-row mb-1"><span className="block pr-1">6)</span>Make calls to different endpoints from Reddit's API allowing a user to search for Subreddits</li>
+            <li className="flex flex-row mb-1"><span className="block pr-1">7)</span>Back button to allow the user to navigate back to the homepage</li>
         </ul>
     </div>
     )

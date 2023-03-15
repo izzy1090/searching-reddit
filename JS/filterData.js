@@ -42,9 +42,10 @@ function filterData (object) {
                 subreddit_subscribers: val.data.subreddit_subscribers,
                 // links to media posted in the thread
                 media: val.data.url,
+                ups: val.data.ups,
                 permalink: val.data.permalink,
                 // number of reactions awarded to the thread
-                total_awards_received: val.data.total_awards_received,
+                totalAwardsReceived: val.data.total_awards_received,
                 // text from the posted thread
                 selftext: val.data.selftext,
                 nsfw: val.data.over_18
