@@ -2,7 +2,7 @@ import Image from "next/image";
 import DeleteButton from '../../public/images/grey-delete-icon.svg'
 import DateConverter from "./DateConverter";
 
-function Thread (
+function ThreadList (
     {   threadId, 
         deleteThread, 
         subredditName, 
@@ -76,4 +76,4 @@ function Thread (
     ) 
 }
 
-export default Thread
+export default ThreadList;

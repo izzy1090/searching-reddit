@@ -1,4 +1,4 @@
-import Thread from "../components/Thread";
+import ThreadList from "../components/ThreadList";
 import Panel from "../components/Panel";
 
 function ThreadPage ({ threads, handleDelete }){
@@ -10,7 +10,7 @@ function ThreadPage ({ threads, handleDelete }){
         
         return (
             <Panel key={id}>
-                <Thread
+                <ThreadList
                     thumbnails={results.thumbnail}
                     deleteThread={handleDelete}
                     threadId={id}
