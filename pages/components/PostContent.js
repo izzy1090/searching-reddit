@@ -10,14 +10,14 @@ function PostContent( {data, id, media, nsfw} ){
         if (checkMediaFormat){
             if (checkMediaFormat && nsfw){
                 renderedMedia = <>
-                <div className="flex items-center justify-center mt-2 blur-2xl">
-                    <a target="_blank" rel="noreferrer"
-                        href={media}>
-                        <img src={media} alt='Embedded images from Reddit post.'/>
-                    </a>
+                <div className="inline-flex p-1 mb-4 border-1 border-solid border-reddit-border-orange">
+                    <div className="text-reddit-orange">nsfw</div>
+                </div>
+                <div className="flex items-center justify-center mt-2">
+                    <img src={media} alt='Embedded images from Reddit post.' 
+                        className="blur-xl"/>
                 </div>
             </>
-                
             } else renderedMedia = <>
                 <div className="flex items-center justify-center mt-2">
                     <a target="_blank" rel="noreferrer"
