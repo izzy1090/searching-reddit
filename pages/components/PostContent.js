@@ -10,12 +10,14 @@ function PostContent( {data, id, media, nsfw} ){
         if (checkMediaFormat){
             if (checkMediaFormat && nsfw){
                 renderedMedia = <>
-                <div className="inline-flex p-1 mb-4 border-1 border-solid border-reddit-border-orange">
+                <div className="inline-flex p-1 mb-2 border-1 border-solid border-reddit-border-orange">
                     <div className="text-reddit-orange">nsfw</div>
                 </div>
-                <div className="flex items-center justify-center mt-2">
+                <div className="flex items-center justify-center mt-2 overflow-auto">
                     <img src={media} alt='Embedded images from Reddit post.' 
-                        className="blur-xl"/>
+                        style={{filter: 'blur(55px)'}}
+                        
+                        />
                 </div>
             </>
             } else renderedMedia = <>
