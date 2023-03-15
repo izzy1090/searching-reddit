@@ -4,7 +4,7 @@ function PostContent( {data, id, media} ){
     const [ expanded, setIsExpanded ] = useState({});
     let content;
     let renderedMedia;
-    const checkMediaFormat = media.includes('jpg') || 
+    const checkMediaFormat = media && media.includes('jpg') || 
         media.includes('png')
     if (checkMediaFormat){
         renderedMedia = <>
