@@ -1,8 +1,21 @@
 import { useState } from "react";
 
-function ExpandContent( {data, id} ){
+function PostContent( {data, id, media} ){
     const [ expanded, setIsExpanded ] = useState({});
     let content;
+    let renderedMedia;
+    const checkMediaFormat = media.includes('jpg') || 
+        media.includes('png')
+    if (checkMediaFormat){
+        renderedMedia = <>
+            <div className="flex items-center justify-center mt-2">
+                <a target="_blank" rel="noreferrer"
+                    href={media}>
+                    <img src={media} alt='Embedded images from Reddit post.'/>
+                </a>
+            </div>
+        </>
+    }
     // Function passes the posts ID to the setter function
     const handleExpand = (postId) => {
         // if the postId in the expanded state is false
@@ -19,31 +32,34 @@ function ExpandContent( {data, id} ){
         // if isExpanded has a value
         if (isExpanded){
             // we want to initialize any posts with the true isExpanded variable to display
-            return (content = <div className="p-1">
+            return (content = <div className="p-1 text-sm">
                 <div className="overflow-auto whitespace-pre-wrap ">
                     {data}   
                 </div>
+                {renderedMedia}
                 <button onClick={()=>handleExpand(id)} 
                     className="mt-1 text-slate-500 text-xs font-semibold hover:underline">
                     Hide
                 </button>
             </div>)
-        } else return content = <div className="p-1">
+        } else return content = <div className="p-1 text-sm">
             <div className="truncate overflow-auto max-h-40 whitespace-pre-wrap">
                 {data}   
             </div>
+            {renderedMedia}
             <button onClick={()=>handleExpand(id)} 
                 className="mt-2 pt-1 text-slate-500 text-xs font-semibold hover:underline">
                 See more...
             </button>
         </div>
     // otherwise render post normally
-    } else content = <div className="p-1">
+    } else content = <div className="p-1 text-sm">
         <div className="overflow-auto whitespace-pre-wrap">
             {data}   
         </div>
+        {renderedMedia}
     </div>
     return content;
 };
 
-export default ExpandContent;
+export default PostContent;

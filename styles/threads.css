@@ -50,6 +50,12 @@
         margin-bottom: 2px;
         margin-top: 1px;
     }
+    /* #date{
+        display: none;
+    } */
+    #post-user-mobile{
+        display: none;
+    }
 }
 @media screen and (min-width: 360px) and (max-width: 767px) {
     .subreddit-container {
@@ -62,6 +68,12 @@
         margin-bottom: 2px;
         margin-top: 1px;
     }
+    #date{
+        display: none;
+    }
+    #post-user-mobile{
+        display: none;
+    }
 }
 @media screen and (min-width: 768px) and (max-width: 1000px) {
     .subreddit-container {
@@ -69,7 +81,6 @@
         margin-top: 0px;
         margin-left: 5px;
         margin-right: 5px;
-        
     }
 }
 @media screen and (min-width: 1001px) and (max-width: 1279px) {

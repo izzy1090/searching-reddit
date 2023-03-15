@@ -21,7 +21,6 @@ function Page () {
 
     const handleSubmit = async (searchTerm) => {
         setLoading(true)
-        console.log(sortSelection)
         // call the API with our searchTerm as a passed-in arg
         apiCall(searchTerm).then((response)=> {
             setLoading(false);   

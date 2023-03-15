@@ -41,17 +41,12 @@ function filterData (object) {
                 // number of subscribers associated w/the subreddit
                 subreddit_subscribers: val.data.subreddit_subscribers,
                 // links to media posted in the thread
-                url: val.data.url,
+                media: val.data.url,
                 permalink: val.data.permalink,
-                // media, links or images posted within the thread
-                media: val.data.media,
                 // number of reactions awarded to the thread
                 total_awards_received: val.data.total_awards_received,
                 // text from the posted thread
                 selftext: val.data.selftext,
-                linkFlairText: val.data.link_flair_text,
-                linkFlairBgColor: val.data.link_flair_background_color,
-                linkFlairTextColor: val.data.link_flair_text_color
             } 
         }) 
 }

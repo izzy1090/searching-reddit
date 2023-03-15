@@ -23,7 +23,7 @@ function SearchBar ( { onSubmit } ) {
                 id="reddit-logo" 
                 alt="Png of reddit logo"/></a>
             <form type='hidden' className='search-bar-form' onSubmit={handleSubmit}>
-                <input className='search-bar-input' placeholder='search reddit..' onChange={handleChange}></input>
+                <input className='search-bar-input text-sm' placeholder='search reddit..' onChange={handleChange}></input>
             </form>
             <Image src={searchButton} 
                     className='search-button' 
