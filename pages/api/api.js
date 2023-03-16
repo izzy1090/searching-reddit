@@ -37,7 +37,6 @@ export const apiCall = async function getStaticProps (searchTerm) {
             // then take rawData and filter it through function components from other scripts
             .then( rawData => {
                 const childObject = rawData.data;
-                console.log(rawData)
                 return filterData(childObject);
             })
         }) 

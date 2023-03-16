@@ -1,7 +1,7 @@
 import Image from "next/image";
 import DeleteButton from '../../public/images/grey-delete-icon.svg'
-import DateConverter from "./DateConverter";
-import PostContent from './PostContent';
+import Dates from "./Dates";
+import PostBody from './PostBody';
 import Panel from "./Panel";
 
 function ThreadList (
@@ -42,7 +42,7 @@ function ThreadList (
                         </span>
                     </a>
                     <div className="flex flex-row ml-1" id="date">
-                        on <DateConverter date={date} className='ml-1'/>
+                        on <Dates date={date} className='ml-1'/>
                     </div>
                 </div>
                 <Image src={DeleteButton} 
@@ -73,7 +73,7 @@ function ThreadList (
                     {threadName}
                 </a>
             </div>
-            <PostContent data={body} id={threadId} media={media} nsfw={nsfw}/>
+            <PostBody data={body} id={threadId} media={media} nsfw={nsfw}/>
             
         </Panel>
     ) 

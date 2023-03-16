@@ -1,8 +1,9 @@
-import ThreadList from "../components/ThreadList";
+import ThreadList from "./components/ThreadList";
 
-function ThreadListPage ({ threads, handleDelete }){
+function ThreadListPage ({ threads, handleDelete, loading }){
+    
     let renderedThreads;
-    if (threads){
+    if (threads && !loading){
         renderedThreads = threads.map((results, i)=>{
             const parser = new DOMParser();
             const cleanText = parser.parseFromString(results.selftext, 'text/html').body.textContent;
@@ -26,9 +27,10 @@ function ThreadListPage ({ threads, handleDelete }){
                     nsfw={results.nsfw}
                     />
             )})  
-        }
+        } else return null;
 
     return <div>{renderedThreads}</div>
+    
 }
 
 export default ThreadListPage;

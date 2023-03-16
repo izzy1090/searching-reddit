@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function PostContent( {data, id, media, nsfw} ){
+function PostBody( {data, id, media, nsfw} ){
     const [ expanded, setIsExpanded ] = useState({});
     if (data || media){
         
@@ -75,4 +75,4 @@ function PostContent( {data, id, media, nsfw} ){
     }
 };
 
-export default PostContent;
+export default PostBody;
