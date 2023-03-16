@@ -3,10 +3,10 @@ import { useState } from "react";
 function PostBody( {data, id, media, nsfw} ){
     const [ expanded, setIsExpanded ] = useState({});
     if (data || media){
-        
         let content;
         let renderedMedia;
         const checkMediaFormat = media.includes('jpg') || media.includes('png');
+
         if (checkMediaFormat){
             if (checkMediaFormat && nsfw){
                 renderedMedia = <>
@@ -15,8 +15,7 @@ function PostBody( {data, id, media, nsfw} ){
                 </div>
                 <div className="flex items-center justify-center mt-2 overflow-auto">
                     <img src={media} alt='Embedded images from Reddit post.' 
-                        style={{filter: 'blur(55px)'}}
-                        />
+                        style={{filter: 'blur(70px)'}}/>
                 </div>
             </>
             } else renderedMedia = <>
@@ -44,7 +43,8 @@ function PostBody( {data, id, media, nsfw} ){
             // if isExpanded has a value
             if (isExpanded){
                 // we want to initialize any posts with the true isExpanded variable to display
-                return (content = <div className="p-1 text-sm">
+                return (content = 
+                <div className="p-1 text-sm">
                     <div className="overflow-auto whitespace-pre-wrap ">
                         {data}   
                     </div>
@@ -53,7 +53,8 @@ function PostBody( {data, id, media, nsfw} ){
                         className="mt-1 text-slate-500 text-xs font-semibold hover:underline">
                         Hide
                     </button>
-                </div>)
+                </div>
+                )
             } else return content = <div className="p-1 text-sm">
                 <div className="truncate overflow-auto max-h-40 whitespace-pre-wrap">
                     {data}   

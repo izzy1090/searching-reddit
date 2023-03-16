@@ -18,6 +18,8 @@ body {
     padding: 50px;
     padding-bottom: 10px;
     display: block;
+    padding-left: 20%;
+    padding-right: 20%;
 }
 
 @media screen and (min-width: 0px) and (max-width: 359px) {

@@ -3,6 +3,7 @@ import DeleteButton from '../../public/images/grey-delete-icon.svg'
 import Dates from "./Dates";
 import PostBody from './PostBody';
 import Panel from "./Panel";
+import LazyLoad from "react-lazy-load";
 
 function ThreadList (
     {   threadId, 
@@ -25,6 +26,7 @@ function ThreadList (
     }
 
     return (
+        <LazyLoad>
         <Panel key={threadId} className="subreddit-container">
             <div className="flex flex-row p-1 items-center text-xs">
                 <a target='_blank' rel="noreferrer"
@@ -76,6 +78,7 @@ function ThreadList (
             <PostBody data={body} id={threadId} media={media} nsfw={nsfw}/>
             
         </Panel>
+        </LazyLoad>
     ) 
 }
 

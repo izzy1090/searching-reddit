@@ -16,7 +16,7 @@ function Dates( {date, className} ){
     }
     const months = monthConverter(responseDates.getMonth())
     // format returned date object into an appropriate string
-    const createdDate = `${months}/${responseDates.getDate()}/${responseDates.getFullYear()}`;
+    const createdDate = `${months}/${responseDates.getDate()}/${(responseDates.getFullYear()-2000)}`;
     return <div className={className}> {createdDate} </div>
     
 }

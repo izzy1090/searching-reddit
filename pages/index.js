@@ -35,14 +35,14 @@ function Index () {
             <SearchBar onSubmit={handleSubmit}/>
             <ThreadCount/>
             <IntroMessagePage loading={isLoading} threads={threads}/>
-            <LazyLoad>
+            
                 {isLoading ? <LoadingAnimation/> : 
                     (<ThreadListPage 
                         loading={isLoading} 
                         threads={threads} 
                         handleDelete={handleDelete}/>) 
                 }
-            </LazyLoad>
+            
         </div> 
     )
 }
