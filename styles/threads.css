@@ -46,9 +46,9 @@
         margin-bottom: 10px;
         margin-top: 1px;
     }
-    /* #date{
+    #date{
         display: none;
-    } */
+    }
     #post-user-mobile{
         display: none;
     }
@@ -82,7 +82,7 @@
         display: none;
     }
 }
-@media screen and (min-width: 1001px) and (max-width: 1700px) {
+@media screen and (min-width: 1001px) and (max-width: 1600px) {
     .subreddit-container {
         margin-bottom: 10px;
         margin-top: 0px;
@@ -90,6 +90,10 @@
     #post-user-mobile{
         display: none;
     }
+    #date{
+        display: none;
+    }
+    
 }
 
 /* Loading animation to play between searches */
