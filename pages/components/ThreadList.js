@@ -30,6 +30,7 @@ function ThreadList (
 
     return (
         <Panel key={threadId} className="subreddit-container">
+
             <div className="flex flex-row p-1 items-center text-xs">
                 <a target='_blank' rel="noreferrer"
                     href={`https://www.reddit.com/${subredditName}`}
@@ -69,7 +70,7 @@ function ThreadList (
                     </div>
                 </div>
                 <div className="flex flex-row items-center">
-                    · {totalAwardsReceived} 
+                    · <MetricsDisplay value={totalAwardsReceived}/> 
                     <Image src={awardsIcon} height={15} width={15} 
                         alt="Represents awards icon"
                         className="ml-1"/>
