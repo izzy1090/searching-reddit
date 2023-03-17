@@ -19,7 +19,6 @@ function isoChildObj(json) {
 // output: return an object of key/value pairs
 // function accepts a parent object created by isoChildObj and filters it to return our desired key/value pairs
 function filterData (object) {
-    console.log('filtered date: ', object)
     // if key names match 'children'
     if (object['children']) 
         // map the desired key/value pairs to a new object 

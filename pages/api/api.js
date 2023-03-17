@@ -35,9 +35,13 @@ export const apiCall = async function getStaticProps (searchTerm) {
             // convert response from API call into a JSON
             .then( response => response.json() )
             // then take rawData and filter it through function components from other scripts
-            .then( rawData => {
-                const childObject = rawData.data;
-                return filterData(childObject);
+            .then( rawData => filterData(rawData.data))
+            .then(response => {
+                const filterMatureContent = response.filter((thread)=>!thread.nsfw)
+                // if (filteredThreads.length < 25){
+                //     return apiCall(searchTerm)
+                // } else if (filteredThreads.length > 25) {return filteredThreads.slice(0, 100)}
+                return filterMatureContent
             })
         }) 
         return {

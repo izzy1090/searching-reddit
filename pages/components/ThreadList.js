@@ -64,9 +64,9 @@ function ThreadList (
                     <span className="ml-1">·</span>
                     <div className='p-1 flex flex-row'>
                         <MetricsDisplay value={subscriberCount}/>
-                        <Image src={subsIcon} height={14} width={14} 
+                        <Image src={subsIcon} height={'auto'} width={'auto'} 
                             alt="Represents the subscribers icon"
-                            className="ml-1"/>
+                            className="ml-1 w-[15px] h-[15px]"/>
                     </div>
                 </div>
                 <div className="flex flex-row items-center">
