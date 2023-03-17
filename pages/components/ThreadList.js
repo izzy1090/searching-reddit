@@ -65,13 +65,13 @@ function ThreadList (
                         <span className="ml-1">·</span>
                         <div className='p-1 flex flex-row'>
                             {subscriberCount} 
-                            <Image src={subsIcon} height={15} width={15} 
+                            <Image src={subsIcon} height={14} width={14} 
                                 className="ml-1"/>
                         </div>
                     </div>
                     <div className="flex flex-row items-center">
                         · {totalAwardsReceived} 
-                        <Image src={awardsIcon} height={12} width={12} 
+                        <Image src={awardsIcon} height={15} width={15} 
                             className="ml-1"/>
                     </div>
                 </div>
@@ -83,7 +83,6 @@ function ThreadList (
                     </a>
                 </div>
                 <PostBody data={body} id={threadId} media={media} nsfw={nsfw}/>
-                
             </Panel>
         </LazyLoad>
     ) 
