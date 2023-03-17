@@ -44,7 +44,7 @@ function ThreadList (
                             </span>
                         </a>
                         <div className="flex flex-row ml-1" id="date">
-                            on <Dates date={date} className='ml-1'/>
+                            · <Dates date={date} className='ml-1'/>
                         </div>
                     </div>
                     <Image src={DeleteButton} 

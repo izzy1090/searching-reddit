@@ -13,7 +13,7 @@ function PostBody( {data, id, media, nsfw} ){
                 <div className="inline-flex p-1 mb-2 border-1 border-solid border-reddit-border-orange">
                     <div className="text-reddit-orange">nsfw</div>
                 </div>
-                <div className="flex items-center justify-center mt-2 overflow-auto">
+                <div className="flex items-center justify-center mt-2 overflow-auto pointer-events-none">
                     <img src={media} alt='Embedded images from Reddit post.' 
                         style={{filter: 'blur(70px)'}}/>
                 </div>

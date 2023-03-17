@@ -8,6 +8,7 @@ function ThreadListPage ({ threads, handleDelete, loading }){
             const parser = new DOMParser();
             const cleanText = parser.parseFromString(results.selftext, 'text/html').body.textContent;
             results.id = i;
+ 
             return (
                 <ThreadList 
                     key={results.id}
