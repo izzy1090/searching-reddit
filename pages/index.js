@@ -1,7 +1,7 @@
 import IntroMessagePage from './IntroMessagePage';
 import SearchBar from './components/SearchBar';
 import { apiCall } from './api/api';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ThreadCount from './components/ThreadCount';
 import ThreadListPage from './ThreadListPage';
 import LoadingAnimation from './components/LoadingAnimation';
@@ -18,15 +18,14 @@ function Index () {
         })
         return setThreads(newThreads);
     }
-
     const handleSubmit = async (searchTerm) => {
         setLoading(true);
         // call the API with our searchTerm as a passed-in arg
         apiCall(searchTerm).then((response)=> {
             // temporary way of handling NSFW content
-            const filteredThreads = response.props.threads.filter((thread)=>!thread.nsfw)
+            // const filteredThreads = response.props.threads.filter((thread)=>!thread.nsfw)
             setLoading(false);   
-            setThreads(filteredThreads);
+            setThreads(response.props.threads.filter((thread)=>!thread.nsfw));
         })
     }
     
@@ -42,7 +41,6 @@ function Index () {
                 (<ThreadListPage
                     loading={isLoading} 
                     threads={threads}
-                    
                     handleDelete={handleDelete}/>
                 ) 
             }

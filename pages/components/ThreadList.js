@@ -4,6 +4,9 @@ import Dates from "./Dates";
 import PostBody from './PostBody';
 import Panel from "./Panel";
 import LazyLoad from "react-lazy-load";
+import upArrow from '../../public/images/up-arrow.svg';
+import subsIcon from '../../public/images/subs-icon.svg'
+import awardsIcon from '../../public/images/awards-icon.svg'
 
 function ThreadList (
     {   threadId, 
@@ -48,25 +51,29 @@ function ThreadList (
                         </div>
                     </div>
                     <Image src={DeleteButton} 
-                        alt="Image of an 'x' icon for the delete button."
+                        alt="x icon for the delete button."
                         className="w-[10px] ml-auto cursor-pointer"
                         onClick={ handleDeleteClick }/>
                 </div>
-                
-                <div className="flex flex-row items-center text-xs p-1">
-                <div>
-                    {ups} <span className="font-semibold">ups</span> ·
-                </div>
-                    <div className='p-1'>
-                        {subscriberCount} 
-                        <span className="ml-1 font-semibold">
-                            subs
-                        </span>
+                <div className="flex flex-row text-xs p-1">
+                    <div className="flex flex-row items-center">
+                        {ups} <Image src={upArrow} height={15} width={15}
+                            alt="Up icon to represent upvotes"
+                            className="ml-1"/>
+                    </div> 
+                    <div className="flex flex-row items-center">
+                        <span className="ml-1">·</span>
+                        <div className='p-1 flex flex-row'>
+                            {subscriberCount} 
+                            <Image src={subsIcon} height={15} width={15} 
+                                className="ml-1"/>
+                        </div>
                     </div>
-                    · {totalAwardsReceived} 
-                    <span className="ml-1 font-semibold"> 
-                        awards
-                    </span>
+                    <div className="flex flex-row items-center">
+                        · {totalAwardsReceived} 
+                        <Image src={awardsIcon} height={12} width={12} 
+                            className="ml-1"/>
+                    </div>
                 </div>
                 <div className="mb-1 text-base pl-1 pr-1 font-semibold">
                     <a target="_blank" rel="noreferrer"
