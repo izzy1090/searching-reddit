@@ -2,7 +2,7 @@ import Head from 'next/head';
 import '../styles/globals.css';
 import '../styles/searchBar.css';
 import '../styles/threads.css';
-import '../styles/threadCount.css';
+import '../styles/threadFilters.css';
 
 
 function MyApp({ Component, pageProps }) {

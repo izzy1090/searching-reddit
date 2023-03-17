@@ -27,7 +27,7 @@ export const apiCall = async function getStaticProps (searchTerm) {
             // isolate the actual bearer token to return it for the API call below
             .then( bearerToken => bearerToken[0] )
         .then((returnedToken)=> {
-            return fetch(`https://oauth.reddit.com/r/all/search/?q=${searchTerm}&sort=${sortSelection}&limit=${threadCount}&include_over_18=false`, 
+            return fetch(`https://oauth.reddit.com/r/all/search/?q=${searchTerm}&sort=${sortSelection}&limit=${threadCount}`, 
                 { headers: {
                     // authorize with previously generated bearerToken here
                     Authorization: `bearer ${returnedToken}`}

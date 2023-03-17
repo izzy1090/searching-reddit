@@ -4,11 +4,9 @@ function ThreadListPage ({ threads, handleDelete, loading }){
     
     let renderedThreads;
     if (threads && !loading){
-        renderedThreads = threads.map((results, i)=>{
+        renderedThreads = threads.map((results)=>{
             const parser = new DOMParser();
             const cleanText = parser.parseFromString(results.selftext, 'text/html').body.textContent;
-            results.id = i;
- 
             return (
                 <ThreadList 
                     key={results.id}

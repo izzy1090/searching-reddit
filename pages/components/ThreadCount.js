@@ -5,12 +5,15 @@ function ThreadCount( ) {
         threadCount = number.target.value
     }
 
-    const fieldMessage = "Thread count"
+    const fieldMessage = "Thread count";
     return(
         <>
         <div className="count-flex text-xs">
-            <div className="field-name">{fieldMessage}</div><input
-                className="thread-count" 
+            <div className="count-field-name">
+                {fieldMessage}
+            </div>
+            <input
+                className="count-thread-limit" 
                 type='number' 
                 min={1}
                 placeholder={'Enter #'}

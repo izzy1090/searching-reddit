@@ -4,8 +4,8 @@ import { apiCall } from './api/api';
 import { useState } from 'react';
 import ThreadCount from './components/ThreadCount';
 import ThreadListPage from './ThreadListPage';
-import LazyLoad from 'react-lazy-load';
 import LoadingAnimation from './components/LoadingAnimation';
+import SafeSearch from './components/SafeSearch';
 
 function Index () {
     // loading state to display animation in between searches
@@ -27,23 +27,36 @@ function Index () {
             setLoading(false);   
             setThreads(response.props.threads);
         })
-
     }
+
+    const [ isSafeSearch, setIsSafeSearch ] = useState(true);
+
+    const handleSafeSearchToggle = () => {
+        setIsSafeSearch(prevState=> !prevState)
+    }
+
+    const filterThreadsBySafeSearch = () => {
+        return isSafeSearch ? threads.filter((thread) => !thread.nsfw) : threads;
+      };
     
-    return ( 
+    return ( <>
+        <SearchBar onSubmit={handleSubmit}/>
         <div className='page-contents'>
-            <SearchBar onSubmit={handleSubmit}/>
-            <ThreadCount/>
+            <div className='flex flex-row items-center'>
+                <ThreadCount/>
+                {/* <SafeSearch onClick={handleSafeSearchToggle}/> */}
+            </div>
             <IntroMessagePage loading={isLoading} threads={threads}/>
-            
-                {isLoading ? <LoadingAnimation/> : 
-                    (<ThreadListPage 
-                        loading={isLoading} 
-                        threads={threads} 
-                        handleDelete={handleDelete}/>) 
-                }
-            
+            {isLoading ? <LoadingAnimation/> : 
+                (<ThreadListPage
+                    
+                    loading={isLoading} 
+                    threads={filterThreadsBySafeSearch()} 
+                    handleDelete={handleDelete}/>
+                ) 
+            }
         </div> 
+    </>
     )
 }
 

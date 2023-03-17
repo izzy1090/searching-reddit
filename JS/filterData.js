@@ -25,6 +25,7 @@ function filterData (object) {
         // map the desired key/value pairs to a new object 
         return object['children'].map((val)=>{
             return {
+                id: val.data.id,
                 // the subreddit names and their prefix
                 subreddit: val.data.subreddit,
                 subreddit_name_prefixed: val.data.subreddit_name_prefixed,

@@ -1,11 +1,10 @@
 .count-flex{
     display: flex;
     margin-bottom: 10px;
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-left: 22%;
 }
 
-.field-name{
+.count-field-name{
     display: flex;
     align-items: center;
     font-size: small;
@@ -16,7 +15,7 @@
     padding: 6px;
 }
 
-.thread-count{
+.count-thread-limit{
     border-radius: 4px;
     max-width: 70px;
     border: solid rgb(204, 204, 204);
