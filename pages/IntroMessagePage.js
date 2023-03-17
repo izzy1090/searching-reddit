@@ -1,7 +1,7 @@
 function IntroMessagePage({threads, loading}) {
-    
+
     const showPage = threads && !loading; 
-        
+    
     if (showPage && threads.length === 0){
         return (
         <div className="subreddit-container text-sm">
