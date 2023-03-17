@@ -66,12 +66,14 @@ function ThreadList (
                         <div className='p-1 flex flex-row'>
                             {subscriberCount} 
                             <Image src={subsIcon} height={14} width={14} 
+                                alt="Represents the subscribers icon"
                                 className="ml-1"/>
                         </div>
                     </div>
                     <div className="flex flex-row items-center">
                         · {totalAwardsReceived} 
                         <Image src={awardsIcon} height={15} width={15} 
+                            alt="Represents awards icon"
                             className="ml-1"/>
                     </div>
                 </div>
