@@ -19,6 +19,7 @@ function isoChildObj(json) {
 // output: return an object of key/value pairs
 // function accepts a parent object created by isoChildObj and filters it to return our desired key/value pairs
 function filterData (object) {
+    console.log("Object before it's filtered: ", object);
     // if key names match 'children'
     if (object['children']) 
         // map the desired key/value pairs to a new object 
@@ -42,6 +43,7 @@ function filterData (object) {
                 subreddit_subscribers: val.data.subreddit_subscribers,
                 // links to media posted in the thread
                 media: val.data.url,
+                mediaMetadata: val.data.media_metadata,
                 ups: val.data.ups,
                 permalink: val.data.permalink,
                 // number of reactions awarded to the thread

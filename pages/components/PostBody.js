@@ -1,15 +1,18 @@
 import { useState } from "react";
 
-function PostBody( {data, id, media, nsfw} ){
+function ThreadBody( {data, id, media, nsfw} ){
     const [ expanded, setIsExpanded ] = useState({});
     if (data || media){
         let content;
         let renderedMedia;
-        const checkMediaFormat = media.includes('jpg') || media.includes('png');
+        const checkPngJpg = media.includes('.jpg') || media.includes('.png');
+        const checkYoutube = media.includes('youtube.com');
+        if (checkYoutube){
+            media = media.slice(32);
+        }
 
-        if (checkMediaFormat){
-            if (checkMediaFormat && nsfw){
-                renderedMedia = <>
+        if (checkPngJpg && nsfw){
+            renderedMedia = <>
                 <div className="inline-flex p-1 mb-2 border-1 border-solid border-reddit-border-orange">
                     <div className="text-reddit-orange">nsfw</div>
                 </div>
@@ -18,7 +21,8 @@ function PostBody( {data, id, media, nsfw} ){
                         style={{filter: 'blur(70px)'}}/>
                 </div>
             </>
-            } else renderedMedia = <>
+        } else if (checkPngJpg) {
+            renderedMedia = <>
                 <div className="flex items-center justify-center mt-2">
                     <a target="_blank" rel="noreferrer"
                         href={media}>
@@ -26,7 +30,31 @@ function PostBody( {data, id, media, nsfw} ){
                     </a>
                 </div>
             </>
+        } else if (checkYoutube) {
+            renderedMedia = <>
+                <div className="flex justify-center items-center">
+                    <iframe
+                        width={560}
+                        height={315}
+                        src={`https://www.youtube.com/embed/${media}`}
+                        title="YouTube video player"
+                        allowFullScreen
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    />
+                </div>
+            
+            </>
+        } else {
+            renderedMedia = <>
+                <div className="mt-2 text-slate-800">Leave Reddit...</div>
+                <a target="_blank" rel="noreferrer" href={media}>
+                    <div className="overflow-auto text-user-link-color hover:underline">
+                        {media}
+                    </div>
+                </a>
+            </>
         }
+        
         // Function passes the posts ID to the setter function
         const handleExpand = (postId) => {
             // if the postId in the expanded state is false
@@ -76,4 +104,4 @@ function PostBody( {data, id, media, nsfw} ){
     }
 };
 
-export default PostBody;
+export default ThreadBody;

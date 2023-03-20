@@ -1,6 +1,6 @@
 import ThreadList from "./components/ThreadList";
 
-function ThreadListPage ({ threads, handleDelete, loading }){
+function ThreadListPage ({ threads, handleDelete, loading, mediaMetadata }){
     
     let renderedThreads;
     if (threads && !loading){

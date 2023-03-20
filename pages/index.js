@@ -23,12 +23,12 @@ function Index () {
         // call the API with our searchTerm as a passed-in arg
         apiCall(searchTerm).then((response)=> {
             setLoading(false);   
-            setThreads(response.props.threads);
+            setThreads(response.props.threads)
         })
     }
-    
+
     return ( <>
-        <SearchBar onSubmit={handleSubmit}/>
+        <SearchBar onSubmit={handleSubmit} loading={isLoading} handleLoading={setLoading} threads={threads} handleThreads={setThreads}/>
         <div className='page-contents'>
             <div className='flex flex-row items-center'>
                 <ThreadCount/>

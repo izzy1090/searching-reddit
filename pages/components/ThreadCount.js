@@ -1,6 +1,6 @@
 export let threadCount;
 
-function ThreadCount( ) {
+function ThreadCount(){
     function handleChange (number) {
         threadCount = number.target.value
     }

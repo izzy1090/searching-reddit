@@ -36,14 +36,8 @@ export const apiCall = async function getStaticProps (searchTerm) {
             .then( response => response.json() )
             // then take rawData and filter it through function components from other scripts
             .then( rawData => filterData(rawData.data))
-            .then(response => {
-                const filterMatureContent = response.filter((thread)=>!thread.nsfw)
-                // if (filteredThreads.length < 25){
-                //     return apiCall(searchTerm)
-                // } else if (filteredThreads.length > 25) {return filteredThreads.slice(0, 100)}
-                return filterMatureContent
-            })
-        }) 
+            .then( cleanData => cleanData.filter( (thread) => !thread.nsfw) )
+        })
         return {
             props: {
                 threads

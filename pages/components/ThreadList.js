@@ -1,7 +1,7 @@
 import Image from "next/image";
 import DeleteButton from '../../public/images/grey-delete-icon.svg'
 import Dates from "./Dates";
-import PostBody from './PostBody';
+import ThreadBody from './PostBody';
 import Panel from "./Panel";
 import upArrow from '../../public/images/up-arrow.svg';
 import subsIcon from '../../public/images/subs-icon.svg'
@@ -19,7 +19,7 @@ function ThreadList (
         ups,
         totalAwardsReceived,
         subscriberCount, 
-        url, 
+        url,
         media,
         nsfw
      }){
@@ -30,7 +30,6 @@ function ThreadList (
 
     return (
         <Panel key={threadId} className="subreddit-container">
-
             <div className="flex flex-row p-1 items-center text-xs">
                 <a target='_blank' rel="noreferrer"
                     href={`https://www.reddit.com/${subredditName}`}
@@ -83,7 +82,7 @@ function ThreadList (
                     {threadName}
                 </a>
             </div>
-            <PostBody data={body} id={threadId} media={media} nsfw={nsfw}/>
+            <ThreadBody data={body} id={threadId} media={media} nsfw={nsfw}/>
         </Panel>
     ) 
 }
