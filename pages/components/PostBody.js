@@ -6,11 +6,14 @@ function ThreadBody( {data, id, media, nsfw} ){
         let content;
         let renderedMedia;
         const checkPngJpg = media.includes('.jpg') || media.includes('.png');
-        const checkYoutube = media.includes('youtube.com');
-        if (checkYoutube){
+        const checkPrimaryYouTube = media.includes('youtube.com');
+        const checkSecondaryYouTube = media.includes('youtu.be')
+        if (checkPrimaryYouTube){
             media = media.slice(32);
         }
-
+        if (checkSecondaryYouTube){
+            media = media.slice(17)
+        }
         if (checkPngJpg && nsfw){
             renderedMedia = <>
                 <div className="inline-flex p-1 mb-2 border-1 border-solid border-reddit-border-orange">
@@ -30,7 +33,7 @@ function ThreadBody( {data, id, media, nsfw} ){
                     </a>
                 </div>
             </>
-        } else if (checkYoutube) {
+        } else if (checkPrimaryYouTube || checkSecondaryYouTube) {
             renderedMedia = <>
                 <div className="flex justify-center items-center">
                     <iframe
@@ -39,14 +42,15 @@ function ThreadBody( {data, id, media, nsfw} ){
                         src={`https://www.youtube.com/embed/${media}`}
                         title="YouTube video player"
                         allowFullScreen
+                        // Each of these allow certain features from YouTube to improve the user experience
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     />
                 </div>
-            
             </>
-        } else {
+        } 
+        else {
             renderedMedia = <>
-                <div className="mt-2 text-slate-800">Leave Reddit...</div>
+                <div className="mt-2 text-slate-800">Leave the app...</div>
                 <a target="_blank" rel="noreferrer" href={media}>
                     <div className="overflow-auto text-user-link-color hover:underline">
                         {media}

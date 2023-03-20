@@ -12,8 +12,9 @@ function IntroMessagePage({threads, loading}) {
                 Hello and welcome to my Reddit search engine!
             </p>
             <p className="p-1">
-                Use the search bar above to enter keyword(s) to search for relevant threads from Reddit. 
-                You can also use the sort dropdown menu on the right to filter your results accordingly.
+                You can use the search bar above to enter keyword(s) to find relevant threads from Reddit. The application 
+                currently tracks specific metrics, embed relevant photos / videos and allows the user to visit either 
+                the author's profile or the thread link directly.
             </p>
             <p className="p-1">
                 The purpose of this project was to utilize Reddit's API to generate results 
