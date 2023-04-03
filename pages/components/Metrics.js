@@ -1,4 +1,4 @@
-function MetricsDisplay ({ value }) {
+function Metrics ({ value }) {
     if (value > 1000000){
         const renderedValue = (value / 1000000).toFixed(2) + 'm';
         return renderedValue;
@@ -18,4 +18,4 @@ function MetricsDisplay ({ value }) {
     else return value;
 };
 
-export default MetricsDisplay;
+export default Metrics;

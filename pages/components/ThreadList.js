@@ -6,7 +6,7 @@ import Panel from "./Panel";
 import upArrow from '../../public/images/up-arrow.svg';
 import subsIcon from '../../public/images/subs-icon.svg'
 import awardsIcon from '../../public/images/awards-icon.svg'
-import MetricsDisplay from "./MetricsDisplay";
+import Metrics from "./Metrics";
 
 function ThreadList (
     {   threadId, 
@@ -55,21 +55,21 @@ function ThreadList (
             </div>
             <div className="flex flex-row text-xs p-1">
                 <div className="flex flex-row items-center">
-                    <MetricsDisplay value={ups}/>
+                    <Metrics value={ups}/>
                     <Image src={upArrow} height={15} width={15} alt="Up icon to represent upvotes"
                         className="ml-1"/>
                 </div> 
                 <div className="flex flex-row items-center">
                     <span className="ml-1">·</span>
                     <div className='p-1 flex flex-row'>
-                        <MetricsDisplay value={subscriberCount}/>
+                        <Metrics value={subscriberCount}/>
                         <Image src={subsIcon} height={'auto'} width={'auto'} 
                             alt="Represents the subscribers icon"
                             className="ml-1 w-[15px] h-[15px]"/>
                     </div>
                 </div>
                 <div className="flex flex-row items-center">
-                    · <MetricsDisplay value={totalAwardsReceived}/> 
+                    · <Metrics value={totalAwardsReceived}/> 
                     <Image src={awardsIcon} height={15} width={15} 
                         alt="Represents awards icon"
                         className="ml-1"/>
