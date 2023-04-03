@@ -6,7 +6,7 @@ function ThreadListPage ({ threads, handleDelete, loading, mediaMetadata }){
     if (threads && !loading){
         renderedThreads = threads.map((results)=>{
             const parser = new DOMParser();
-            const cleanText = parser.parseFromString(results.selftext, 'text/html').body.textContent;
+            const cleanBodyText = parser.parseFromString(results.selftext, 'text/html').body.textContent;
             return (
                 <ThreadList 
                     key={results.id}
@@ -17,7 +17,7 @@ function ThreadListPage ({ threads, handleDelete, loading, mediaMetadata }){
                     author={results.author}
                     date={results.created}
                     threadName={results.title}
-                    body={cleanText}
+                    body={cleanBodyText}
                     ups={results.ups}
                     subscriberCount={results.subreddit_subscribers}
                     totalAwardsReceived={results.totalAwardsReceived}
