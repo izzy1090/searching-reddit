@@ -11,7 +11,7 @@ function ThreadBody( {data, id, media, nsfw} ){
         const checkSecondaryYouTube = media.includes('youtu.be');
 
         const parser = new DOMParser();
-        const cleanData = parser.parseFromString(data, 'text/html').body.textContent;
+        const cleanData = parser.parseFromString(data, 'text/html').body.textContent.replaceAll('####', '');
 
         if (checkPrimaryYouTube){
             media = media.slice(32);
