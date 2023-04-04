@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ParseURL from "./UrlParser";
 
 function ThreadBody( {data, id, media, nsfw} ){
     const [ expanded, setIsExpanded ] = useState({});
@@ -7,7 +8,11 @@ function ThreadBody( {data, id, media, nsfw} ){
         let renderedMedia;
         const checkPngJpg = media.includes('.jpg') || media.includes('.png');
         const checkPrimaryYouTube = media.includes('youtube.com');
-        const checkSecondaryYouTube = media.includes('youtu.be')
+        const checkSecondaryYouTube = media.includes('youtu.be');
+
+        const parser = new DOMParser();
+        const cleanData = parser.parseFromString(data, 'text/html').body.textContent;
+
         if (checkPrimaryYouTube){
             media = media.slice(32);
         }
@@ -71,14 +76,14 @@ function ThreadBody( {data, id, media, nsfw} ){
         // then init. the expanded variable to the expanded state with the post's ID as a key
         const isExpanded = expanded[id];
 
-        if (data.length > 500){
+        if (cleanData.length > 500){
             // if isExpanded has a value
             if (isExpanded){
                 // we want to initialize any posts with the true isExpanded variable to display
                 return (content = 
                 <div className="p-1 text-sm">
                     <div className="overflow-auto whitespace-pre-wrap ">
-                        {data}   
+                        <ParseURL children={cleanData}/>
                     </div>
                     {renderedMedia}
                     <button onClick={()=>handleExpand(id)} 
@@ -89,7 +94,7 @@ function ThreadBody( {data, id, media, nsfw} ){
                 )
             } else return content = <div className="p-1 text-sm">
                 <div className="truncate overflow-auto max-h-40 whitespace-pre-wrap">
-                    {data}   
+                    <ParseURL children={cleanData}/>   
                 </div>
                 {renderedMedia}
                 <button onClick={()=>handleExpand(id)} 
@@ -100,7 +105,7 @@ function ThreadBody( {data, id, media, nsfw} ){
         // otherwise render post normally
         } else content = <div className="p-1 text-sm">
             <div className="overflow-auto whitespace-pre-wrap">
-                {data}   
+                <ParseURL children={cleanData}/>   
             </div>
             {renderedMedia}
         </div>
