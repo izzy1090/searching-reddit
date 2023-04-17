@@ -48,5 +48,3 @@ Planned features include:
 4) Back button to allow the user to navigate back to the homepage
 
 5) Display the first 10 threads and as the user scrolls down the page, additional results display
-
-t
